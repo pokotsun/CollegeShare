@@ -30,5 +30,4 @@ doc/
 # Ignore npm
 npm-debug.log
 node_modules/
-
 .vscode
