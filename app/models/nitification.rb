@@ -1,0 +1,2 @@
+class Nitification < ApplicationRecord
+end
