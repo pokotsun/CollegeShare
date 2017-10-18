@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore bundler gems.
-vendor/bundle
+vendor/bundler
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -26,3 +26,7 @@ doc/
 .DS_Store
 .idea
 .secretf:
+
+# npm_module
+node_modules
+.vscode
