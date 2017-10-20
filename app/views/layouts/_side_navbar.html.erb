@@ -18,21 +18,64 @@
 
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
-      <li class="header">HEADER</li>
-      <!-- Optionally, you can add icons to the links -->
-      <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-      <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-      <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+      <li class="header">メニュー</li>
+
+      <!-- さがすメニュー -->
+      <li class="active">
+        <%= link_to("#") do %>
+          <%= image_tag("icon/search_white.png", class:"fa fa-link side-bar-icon") %>
+          <span>さがす</span>
+        <% end %>
+      </li>
+
+      <!-- コミュニティメニュー -->
+      <li>
+        <%= link_to("#") do %>
+          <%= image_tag("icon/fav_icon.png", class:"fa fa-link side-bar-icon") %>
+          <span>コミュニティ</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
-        </a>
+        <% end %>
         <ul class="treeview-menu">
-          <li><a href="#">Link in level 2</a></li>
-          <li><a href="#">Link in level 2</a></li>
+          <% (1..5).each  do |i| %>
+            <li><%= link_to("コミュニティその#{i}", "#")%></li>
+          <% end %>
         </ul>
       </li>
+
+      <!-- グループメニュー -->
+      <li class="treeview">
+        <%= link_to("#") do %>
+          <%= image_tag("icon/group_icon.png", class:"fa fa-link side-bar-icon") %>
+          <span>グループ</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        <% end %>
+        <ul class="treeview-menu">
+          <% (1..5).each  do |i| %>
+            <li><%= link_to("グループその#{i}", "#")%></li>
+          <% end %>
+        </ul>
+      </li>
+
+      <!-- アカウントメニュー -->
+      <li>
+        <%= link_to("#") do %>
+          <%= image_tag("icon/account_icon.png", class:"fa fa-link side-bar-icon") %>
+          <span>アカウント</span>
+        <% end %>
+      </li>
+
+      <!-- ログアウトメニュー -->
+      <li>
+        <%= link_to("#") do %>
+          <%= image_tag("icon/logout_icon.png", class:"fa fa-link side-bar-icon") %>
+          <span>ログアウト</span>
+        <% end %>
+      </li>
+      
     </ul>
     <!-- /.sidebar-menu -->
   </section>
