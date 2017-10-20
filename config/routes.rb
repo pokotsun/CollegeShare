@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'search/index'
-
   root 'static_pages#start'
   get 'static_pages/home'
 
