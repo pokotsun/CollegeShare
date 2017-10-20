@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
 //= require admin-lte/plugins/jQuery/jquery-2.2.3.min
+//= require_tree .
 //= require admin-lte/bootstrap/js/bootstrap.min
 //= require admin-lte/dist/js/app.min
 //= require admin-lte/plugins/iCheck/icheck
