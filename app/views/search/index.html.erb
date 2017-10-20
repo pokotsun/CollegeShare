@@ -1,132 +1,6 @@
 <div class="wrapper">
 
-  <!-- Main Header -->
-  <div class="main-header">
-
-    <!-- Logo -->
-    <a href="" class="logo">
-      <!-- 小さいロゴ 50x50px -->
-      <span class="logo-mini"><b>C</b>S</span>
-      <!-- でかいロゴ -->
-      <span class="logo-lg"><b>College</b>Share</span>
-    </a>
-
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button -->
-      <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- メッセージ部分 -->
-          <li class="dropdown messages-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <!-- メッセージのドロップダウン -->
-            <ul class="dropdown-menu">
-              <li class="header">4件の通知があります</li>
-              <li>
-                <!-- inner menu: contains the messages -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="">
-                      <div class="pull-left">
-                        <!--ユーザーイメージ -->
-                        <%= image_tag("user_img/sample_user_img2.jpg", class: "img-circle", alt: "User Image") %>
-                      </div>
-                      <!-- メッセージ & ユーザーイメージ -->
-                      <h4>
-                        koniatsu
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <!-- The message -->
-                      <p>うんこじゃない？</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                </ul>
-                <!-- /.menu -->
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
-          <!-- メッセージメニュー終わり -->
-
-          <!-- お知らせ -->
-          <li class="dropdown notifications-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">1111</span>
-            </a>
-            <!-- お知らせ欄のドロップダウン -->
-            <ul class="dropdown-menu">
-              <li class="header">1111のお知らせがあります</li>
-              <li>
-                <ul class="menu">
-                  <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> チームmetapokoniに誘われています
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-            <!-- お知らせドロップダウンの終わり -->
-          </li>
-          <!-- お知らせ欄の終了 -->
-
-          <!-- ユーザーアカウント部分 -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- ユーザーイメージ -->
-              <%= image_tag("user_img/sample_user_img.jpg", class:"user-image", alt: "User Image") %>
-              <!-- ユーザー名 -->
-              <span class="hidden-xs">pokotsun</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- ユーザーイメージ In メニュ- -->
-              <li class="user-header">
-                <%= image_tag("user_img/sample_user_img.jpg", class:"img-circle", alt: "User Image") %>
-                <p>
-                  meta713
-                  <small>meta713@example.com</small>
-                </p>
-              </li>
-              <!-- User Menu -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-6 text-center">
-                    <a href="">グループ</a>
-                  </div>
-                  <div class="col-xs-6 text-center">
-                    <a href="">お気に入り大学</a>
-                  </div>
-                </div>
-              </li>
-              <!-- User Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left col-xs-6 text-center">
-                  <a href="#" class="btn btn-default btn-flat">プロフ編集</a>
-                </div>
-                <div class="pull-right col-xs-6 text-center">
-                  <a href="#" class="btn btn-default btn-flat">ログアウト</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
+  <%= render 'layouts/header' %>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
 
@@ -178,6 +52,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
   <!-- footer -->
   <%= render 'layouts/footer' %>
 </div>
