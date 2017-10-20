@@ -1,65 +1,61 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  height: auto;
+// contentの打ち消し、上書き
+.content-padding-negation {
+  height: 100%;
+  position: relative;
+  padding: 0 !important;
+}
 
-  // contentの打ち消し、上書き
-  .content-padding-negation {
-    height: 100%;
-    position: relative;
-    padding: 0 !important;
+// さあ、理想の大学へ
+.start-title-logo {
+  position: absolute;
+  top: 25%;
+  left: 2%;
+  z-index: 99;
+  width: 35%;
+}
+
+// 白い部分
+.start-side {
+  padding-left: 20px;
+  height: 100vh;
+
+  // 能書き
+  p {
+    font-weight: bold;
   }
+  .start-sub-title {
+    margin-top: 68vh;
+  }
+}
 
-  // さあ、理想の大学へ
-  .start-title-logo {
+// 背景指定
+.start-jumbotron {
+  background-image: image-url("static/start_background.png");
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  margin-bottom: 0;
+
+  .start-logo {
     position: absolute;
-    top: 40%;
-    left: 2%;
-    z-index: 99;
-    width: 35%;
+    margin-top: 5px;
+    right: 20px;
   }
 
-  // 白い部分
-  .start-side {
-    padding-left: 20px;
-    height: 100vh;
-
-    // 能書き
-    p {
-      font-weight: bold;
-    }
-    .start-sub-title {
-      margin-top: 68vh;
-    }
-  }
-
-  // 背景指定
-  .start-jumbotron {
-    background-image: image-url("static/start_background.png");
-    background-size: cover;
-    position: relative;
-    height: 100vh;
-    margin-bottom: 0;
-
-    .start-logo {
+  div {
+    .start-btn-position {
       position: absolute;
-      margin-top: 5px;
-      right: 20px;
-    }
-
-    div {
-      .start-btn-position {
-        position: absolute;
-        font-weight: bold;
-        font-size: 25px;
-        bottom: 15%;
-        margin-left: -60px;
-        width: 120px;
-        border: 2px solid white;
-        padding: 5px;
-        background: blur(20px);
-      }
+      font-weight: bold;
+      font-size: 25px;
+      bottom: 15%;
+      margin-left: -60px;
+      width: 120px;
+      border: 2px solid white;
+      padding: 5px;
+      background: blur(20px);
     }
   }
 }

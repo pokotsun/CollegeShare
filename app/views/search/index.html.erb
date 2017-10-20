@@ -1,4 +1,3 @@
-<%= render 'layouts/header' %>
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -15,7 +14,7 @@
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button -->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
@@ -35,7 +34,7 @@
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
                   <li><!-- start message -->
-                    <a href="#">
+                    <a href="">
                       <div class="pull-left">
                         <!--ユーザーイメージ -->
                         <%= image_tag("user_img/sample_user_img2.jpg", class: "img-circle", alt: "User Image") %>
@@ -90,7 +89,7 @@
               <!-- ユーザーイメージ -->
               <%= image_tag("user_img/sample_user_img.jpg", class:"user-image", alt: "User Image") %>
               <!-- ユーザー名 -->
-              <span class="hidden-xs">meta713</span>
+              <span class="hidden-xs">pokotsun</span>
             </a>
             <ul class="dropdown-menu">
               <!-- ユーザーイメージ In メニュ- -->
@@ -179,16 +178,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-      Team MetaPoKoni
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="#">JpHacks</a>.</strong> All rights unreserved.
-  </footer>
-
+  <!-- footer -->
+  <%= render 'layouts/footer' %>
 </div>
 <!-- ./wrapper -->
