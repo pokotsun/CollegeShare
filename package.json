@@ -3,6 +3,6 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "admin-lte": "^2.3.11"
+    "admin-lte": "2.3.11"
   }
 }
