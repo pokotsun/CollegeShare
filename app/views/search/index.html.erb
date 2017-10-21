@@ -39,28 +39,7 @@
             <!-- box-header終わり -->
             <!-- テーブル部分 -->
             <div class="box-body table-responsive no-padding">
-              <table class="table community-table table-striped data-table">
-                <tbody>
-                  <tr>
-                    <th>学校名</th>
-                    <th>トピック数</th>
-                    <th>県名</th>
-                    <th>ステータス</th>
-                    <th>お気に入り数</th>
-                  </tr>
-                  <tr>
-                    <% (1..20).each do |i| %>
-                    <tr>
-                      <td>九州の大学その<%= i %></td>
-                      <td><%= i %></td>
-                      <td>九州の県その<%= i %></td>
-                      <td><span class="label label-success">Approved</span></td>
-                      <td><%= 100 + i %></td>
-                    </tr>
-                    <% end %>
-                  </tr>
-                </tbody>
-              </table>
+              <%= render 'search_table' %>
             </div>
           </div>
         </div>
