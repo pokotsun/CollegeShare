@@ -11,13 +11,66 @@
     <!-- Main content -->
     <section class="content">
       <!-- Your Page Content Here -->
-    </section>
-    <!-- /.content -->
+      <div id="search-root" class="row text-center">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header">
+              <h2 class="box-title">Communities</h2>
+              <div class="box-tools">
+                <div class="form-group col-md-6">
+                  <select class="form-control select2 select2-hidden-accessible sort-select-box" tabindex="-1" aria-hidden="true">
+                    <option selected="selected">ソートする</option>
+                    <option>五十音順</option>
+                    <option>トピック数順</option>
+                    <option>県名順</option>
+                    <option>お気に入り数順</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-sm col-md-6" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search...">
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- box-header終わり -->
+            <!-- テーブル部分 -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table community-table table-striped data-table">
+                <tbody>
+                  <tr>
+                    <th>学校名</th>
+                    <th>トピック数</th>
+                    <th>県名</th>
+                    <th>ステータス</th>
+                    <th>お気に入り数</th>
+                  </tr>
+                  <tr>
+                    <% (1..20).each do |i| %>
+                    <tr>
+                      <td>九州の大学その<%= i %></td>
+                      <td><%= i %></td>
+                      <td>九州の県その<%= i %></td>
+                      <td><span class="label label-success">Approved</span></td>
+                      <td><%= 100 + i %></td>
+                    </tr>
+                    <% end %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    <!-- hooter -->
+    <%= render 'layouts/footer' %>
   </div>
-
-  <!-- /.content-wrapper -->
-
-  <!-- hooter -->
-  <%= render 'layouts/footer' %>
-</div>
-<!-- ./wrapper -->
+  <!-- ./wrapper -->
