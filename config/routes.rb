@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'topics/index'
+
+  get 'topics/show'
+
+  get 'topics/create'
+
   get 'search/index'
   root 'static_pages#start'
   get 'static_pages/home'
