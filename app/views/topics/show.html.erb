@@ -1,2 +1,98 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<div class="wrapper">
+
+  <!-- header -->
+  <%= render partial: 'layouts/header', locals: { user: current_user }, remote: true %>
+  <!-- sidebar -->
+  <%= render 'layouts/side_navbar', remote: true %>
+  <!-- Main部分 -->
+  <div class="content-wrapper">
+    <!-- Main content header-->
+    <div id="topic-root">
+      <section class="content-header">
+        <h1>九州工業大学 情報工学部 飯塚キャンパス</h1>
+        <ol class="breadcrumb">
+          <li><a href="">一覧</a></li>
+          <li><a href="">九州工業大学 情報工学部 飯塚キャンパス</a></li>
+          <li>オープンキャンパス行ってきました</li>
+        </ol>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+                <div class="col-md-10">
+                  <h2 class="topic-title">オープンキャンパス行ってきました</h2>
+                  <h5 class="contributor">投稿者: ふがふが</h5>
+                </div>
+                <div class="col-md-2 thumbs-up-wrapper">
+                  <div class="col-md-6"></div>
+                  <div class="col-md-3">
+                    <i class="fa fa-thumbs-o-up"></i>
+                  </div>
+                  <div class="col-md-3">
+                    <span class="info-box-number">30</span>
+                  </div>
+                </div>
+              </div>
+              <div class="box-body">
+                <p class="topic-text">Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind
+                  texts. Separated they live in Bookmarksgrove right at</p>
+                </p>
+                <!-- Social sharing buttons -->
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                <button type="button" class="btn btn-success btn-xs">もっと読む</button>
+                <span class="pull-right text-muted">45 likes - 2 comments</span>
+              </div>
+              <!-- メッセージゾーン -->
+              <div class="box box-foot direct-chat direct-chat-info topic-comment">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                    </div><!-- /.direct-chat-info -->
+                    <%= image_tag("user_img/sample_user_img2.jpg", class: "direct-chat-img", alt: "User Image") %>
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div><!-- /.direct-chat-text -->
+                  </div><!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                    </div><!-- /.direct-chat-info -->
+                    <%= image_tag("user_img/sample_user_img.jpg", class: "direct-chat-img", alt: "User Image") %>
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div><!-- /.direct-chat-text -->
+                  </div><!-- /.direct-chat-msg -->
+                </div><!--/.direct-chat-messages-->
+                <div class="box-footer">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-flat">Send</button>
+                    </span>
+                  </div>
+                </div><!-- /.box-footer-->
+              </div><!--/.direct-chat -->
+            </div>
+          </div>
+        </div>
+        <!-- hooter -->
+      </section>
+      <!-- /.content -->
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+  <%= render 'layouts/footer' %>
+
+</div>
+<!-- ./wrapper -->

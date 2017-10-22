@@ -36,3 +36,22 @@
   border-bottom: 3px solid #009a9a;
   border-right: 3px solid #009a9a;
 }
+
+
+// topic#show
+#topic-root {
+  // margin: 3vh;
+  .thumbs-up-wrapper {
+    margin: 4vh 0;
+      i {
+        font-size: 3vh;
+      }
+  }
+  .topic-text {
+    margin: 2vh;
+    font-size: 2vh;
+  }
+  .topic-comment {
+    padding: 3vh;
+  }
+}
