@@ -1,7 +1,7 @@
 <div class="wrapper">
 
   <!-- header -->
-  <%= render 'layouts/header', remote: true %>
+  <%= render partial: 'layouts/header', locals: {user: @user}, remote: true %>
 
   <!-- sidebar -->
   <%= render 'layouts/side_navbar', remote: true %>
