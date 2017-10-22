@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   # Devise: Where to redirect users once they have logged in
   protected
     def after_sign_in_path_for(resource)
-      p "パス"
       # defaultではログイン後にsearchのshowに飛ばす
-      search_path(resource.id)
+      search_index_path
     end
 end

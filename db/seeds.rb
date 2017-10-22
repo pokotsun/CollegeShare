@@ -11,3 +11,9 @@ user = User.new(:name => "こにしあつし",
   :major => "理系",
   :email => 'a@b.com', :password => 'aaabbb')
 user.save!
+user = User.new(:name => "はやしみずき",
+  :account_id => "meta713",
+  :profile_img => "sample_user_img.jpg",
+  :major => "理系",
+  :email => 'c@d.com', :password => 'aaabbb')
+user.save!
