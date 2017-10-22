@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.new(:name => "こにしあつし",
   :account_id => "koniatsu",
-  :profile_img => "sample_user_img2.jpg",
+  :profile_img => "sample_user_img4.jpg",
   :major => "理系",
   :email => 'a@b.com', :password => 'aaabbb')
 user.save!
@@ -16,4 +16,11 @@ user = User.new(:name => "はやしみずき",
   :profile_img => "sample_user_img.jpg",
   :major => "理系",
   :email => 'c@d.com', :password => 'aaabbb')
+user.save!
+
+user = User.new(:name => "ぽこつん",
+  :account_id => "pokotsun",
+  :profile_img => "sample_user_img3.jpg",
+  :major => "理系",
+  :email => 'e@f.com', :password => 'aaabbb')
 user.save!
