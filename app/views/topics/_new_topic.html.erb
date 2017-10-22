@@ -1,0 +1,178 @@
+<div class="box box-widge text-left box-info">
+  <div class="box-header with-border">
+    <div class="user-block">
+      <!--　ここはユーザの写真  -->
+      <%= image_tag("user_img/sample_user_img.jpg", class: "img-circle", alt: "User Image") %>
+      <span class="comment"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-default">トピック投稿</a></span>
+      <span class="description">トピックを共有しよう！</span>
+    </div>
+    <div class="box-tools">
+      <!-- <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="いいね！" style="cursor:default;"> -->
+        <!-- <i class="fa fa-thumbs-o-up"></i> Like</button> -->
+      <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal-default" title="トピック投稿">
+        <i class="fa fa-share"></i>投稿
+      </button>
+    </div>
+  </div>
+  <% if false %><div class="box-body">
+    <!-- post text -->
+    <p class="text-justify">人口知能のこれから<br>
+      さて、これまで様々なことをお伝えしてきましたが、それでは、人工知能はこれからどのように発展してくのでしょうか。
+      人工知能とは、自ら思考するコンピュータであるとこれまでお伝えしてきましたが、実はそういった意味でいうと、定義でいうと人工知能そのものはまだ誰も発明できてはいません。
+      つまり、本当の意味での人口知能＝人間のように考えるコンピュータは...<a href="#">more</a>
+    </p>
+    <!-- Attachment -->
+    <div class="attachment-block clearfix">
+      <%= image_tag("static/start_background.png", class: "attachment-img", alt: "Attachement Image") %>
+      <div class="attachment-pushed">
+        <h4 class="attachment-heading"><a href="#">College Share</a></h4>
+        <div class="attachment-text">
+          あなたが本当に行きたい大学、行ってよかったと思う大学を選択するためのサービス。あなたの行きたいが、きっと見つかる。
+        </div>
+        <!-- /.attachment-text -->
+      </div>
+      <!-- /.attachment-pushed -->
+    </div>
+    <!-- /.attachment-block -->
+    <!-- fotter buttons -->
+    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> シェア</button>
+    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> いいね</button>
+    <button type="button" class="btn btn-info btn-xs">もっと読む</button>
+    <span class="pull-right text-muted small">コメント</span>
+  </div><% end %>
+</div>
+
+<!-- <div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">トピック編集</h4>
+      </div>
+      <div class="modal-body text-left">
+        <form role="form">
+          <div class="form-group">
+                  <label for="exampleInputEmail1">タイトル</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="タイトル">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail2">コンテンツ</label>
+                  <textarea  class="form-control" id="exampleInputPassword1" placeholder="コンテンツ" rows="4" cols="40"></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="attachment-block box collapsed-box" style="padding-bottom:0;">
+                    <div class="box-header">
+                      <label for="exampleInputFile">写真</label>
+                      <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="box-body" style="padding-top:0;">
+                      <input type="file" id="exampleInputFile">
+                      <p class="help-block small">タイトル<input type="email" class="form-control input-sm" id="title" placeholder="タイトル"></p>
+                      <p class="help-block small">コメント<textarea type="email" class="form-control input-sm" id="comment" placeholder="コメント"></textarea></p>
+                    </div>
+                  </div>
+                </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
+        <button type="button" class="btn btn-info">投稿する</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  <!-- </div> -->
+  <!-- /.modal-dialog -->
+<!-- </div> -->
+<!-- /.modal -->
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Peopel</h4>
+      </div>
+      <div class="modal-body text-left">
+        <form role="form">
+          <ul class="products-list product-list-in-box">
+            <li class="item">
+              <div class="product-img">
+                <%= image_tag("user_img/sample_user_img.jpg", class: "img-circle", alt: "User Image") %>
+              </div>
+              <div class="product-info">
+                <a class="product-title">@ggogogo</a>
+                <span class="label pull-right"><input type="checkbox" class="minimal-red"></span>
+                <span class="product-description">小西 あつし</span>
+              </div>
+            </li>
+            <li class="item">
+              <div class="product-img">
+                <%= image_tag("user_img/sample_user_img.jpg", class: "img-circle", alt: "User Image") %>
+              </div>
+              <div class="product-info">
+                <a class="product-title">@gjaojg</a>
+                <span class="label label-success pull-right"><input type="checkbox" class="minimal-red"></span>
+                <span class="product-description">中川 ひろき</span>
+              </div>
+            </li>
+            <li class="item">
+              <div class="product-img">
+                <%= image_tag("user_img/sample_user_img2.jpg", class: "img-circle", alt: "User Image") %>
+              </div>
+              <div class="product-info">
+                <a class="product-title">@hogehoge</a>
+                <span class="label label-success pull-right"><input type="checkbox" class="minimal-red"></span>
+                <span class="product-description">林 みずき</span>
+              </div>
+            </li>
+            <li class="item">
+              <div class="product-img">
+                <%= image_tag("user_img/sample_user_img2.jpg", class: "img-circle", alt: "User Image") %>
+              </div>
+              <div class="product-info">
+                <a class="product-title">@tyuighj</a>
+                <span class="label label-success pull-right"><input type="checkbox" class="minimal-red"></span>
+                <span class="product-description">うんちっち</span>
+              </div>
+            </li>
+          </ul>
+          <!-- <div class="form-group">
+                  <label for="exampleInputEmail1">タイトル</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="タイトル">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail2">コンテンツ</label>
+                  <textarea  class="form-control" id="exampleInputPassword1" placeholder="コンテンツ" rows="4" cols="40"></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="attachment-block box collapsed-box" style="padding-bottom:0;">
+                    <div class="box-header">
+                      <label for="exampleInputFile">写真</label>
+                      <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="box-body" style="padding-top:0;">
+                      <input type="file" id="exampleInputFile">
+                      <p class="help-block small">タイトル<input type="email" class="form-control input-sm" id="title" placeholder="タイトル"></p>
+                      <p class="help-block small">コメント<textarea type="email" class="form-control input-sm" id="comment" placeholder="コメント"></textarea></p>
+                    </div>
+                  </div>
+                </div> -->
+       </form>
+      </div>
+      <div class="modal-footer text-center">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
+        <button type="button" class="btn btn-success">招待する！</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
