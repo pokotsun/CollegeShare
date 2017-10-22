@@ -21,6 +21,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="box box-success">
+              <!-- topic詳細ページの見出し部分 -->
               <div class="box-header with-border">
                 <div class="col-md-10">
                   <h2 class="topic-title">オープンキャンパス行ってきました</h2>
@@ -36,6 +37,8 @@
                   </div>
                 </div>
               </div>
+              <!-- topic詳細ページの見出し部分終了 -->
+              <!-- topic詳細ページのテキスト部分 -->
               <div class="box-body">
                 <p class="topic-text">
                   オープンキャンパスとは、学校法人がその学校へ入学を希望・考慮している者に対して、施設内を公開し、学校への関心を深めて貰おうとする、入学促進イベントの一種。
@@ -49,9 +52,13 @@
                 <button type="button" class="btn btn-success btn-xs">もっと読む</button>
                 <span class="pull-right text-muted">45 likes - 2 comments</span>
               </div>
-              <!-- メッセージゾーン -->
+              <!-- topic詳細ページのテキスト部分終了 -->
+
+              <!-- コメント欄 -->
               <div class="box box-foot direct-chat direct-chat-info topic-comment">
+                <!-- コメントリスト -->
                 <%= render 'layouts/comments_list' %>
+                <!-- コメント投稿欄 -->
                 <div class="box-footer">
                   <div class="input-group">
                     <input type="text" name="message" placeholder="Type Message ..." class="form-control">
@@ -59,7 +66,7 @@
                       <button type="button" class="btn btn-info btn-flat">Send</button>
                     </span>
                   </div>
-                </div><!-- /.box-footer-->
+                </div> <!-- コメント投稿欄終了 -->
               </div><!--/.direct-chat -->
             </div>
           </div>
