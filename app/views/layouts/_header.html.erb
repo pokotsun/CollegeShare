@@ -34,11 +34,11 @@
                   <a href="">
                     <div class="pull-left">
                       <!--ユーザーイメージ -->
-                      <%= image_tag("user_img/sample_user_img2.jpg", class: "img-circle", alt: "User Image") %>
+                      <%= image_tag("user_img/#{user.profile_img}", class: "img-circle", alt: "User Image") %>
                     </div>
                     <!-- メッセージ & ユーザーイメージ -->
                     <h4>
-                      koniatsu
+                      <%= user.name %>
                       <small><i class="fa fa-clock-o"></i> 5 mins</small>
                     </h4>
                     <!-- The message -->
@@ -83,17 +83,17 @@
           <!-- ドロップダウンのトグルボタン -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- ユーザーイメージ -->
-            <%= image_tag("user_img/sample_user_img.jpg", class:"user-image", alt: "User Image") %>
+            <%= image_tag("user_img/#{user.profile_img}", class:"user-image", alt: "User Image") %>
             <!-- ユーザー名 -->
-            <span class="hidden-xs">pokotsun</span>
+            <span class="hidden-xs"><%= user.name %></span>
           </a>
           <ul class="dropdown-menu">
             <!-- ユーザーイメージ In メニュ- -->
             <li class="user-header">
-              <%= image_tag("user_img/sample_user_img.jpg", class:"img-circle", alt: "User Image") %>
+              <%= image_tag("user_img/#{user.profile_img}", class:"img-circle", alt: "User Image") %>
               <p>
-                meta713
-                <small><%= user.email.to_s %></small>
+                <%= "@#{user.account_id}" %>
+                <small><%= user.email %></small>
               </p>
             </li>
             <!-- ユーザーメニュー -->
