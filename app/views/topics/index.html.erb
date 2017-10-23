@@ -4,7 +4,7 @@
   <%= render partial: 'layouts/header', locals: { user: current_user }, remote: true %>
 
   <!-- sidebar -->
-  <%= render 'layouts/side_navbar', remote: true %>
+  <%= render partial: 'layouts/side_navbar', locals: { user: current_user },  remote: true %>
 
   <!-- Main部分 -->
   <div class="content-wrapper">
