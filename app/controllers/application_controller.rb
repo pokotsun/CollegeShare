@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
       # defaultではログイン後にsearchのshowに飛ばす
       search_index_path
     end
+
+    def after_sign_out_path_for(resource)
+      new_user_session_path
+    end
 end

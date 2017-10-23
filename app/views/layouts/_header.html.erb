@@ -113,7 +113,9 @@
                 <a href="#" class="btn btn-default btn-flat">プロフ編集</a>
               </div>
               <div class="pull-right col-xs-6 text-center">
-                <a href="#" class="btn btn-default btn-flat">ログアウト</a>
+                <div class="btn btn-default btn-flat">
+                  <%= link_to "ログアウト", destroy_user_session_path, class: "logout-btn", method: :DELETE %>
+                </div>
               </div>
             </li>
           </ul>
