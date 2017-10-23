@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   registrations: 'users/registrations',
   sessions:      'users/sessions'
 }
+  #
+  # as :users do
+  #   get '/login', to: 'users/sessions#new'
+  #   post '/login', to: 'users/sessions#create'
+  #
+  #   delete '/logout', to: 'users/sessions#destroy'
+  # end
 
   root 'static_pages#start'
   get 'static_pages/home'
