@@ -1,5 +1,8 @@
 <div class="main-header">
+  <% if user.profile_img.blank? then
+    user.profile_img = "sample_user_img.jpg" end %>
 
+  <% if(user.profile_img == "") then user.profile_img = "sample_user_img.jpg"  end %>
   <!-- Logo -->
   <a href="" class="logo">
     <!-- 小さいロゴ 50x50px -->
