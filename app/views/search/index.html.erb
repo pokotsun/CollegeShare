@@ -39,7 +39,7 @@
             <!-- box-header終わり -->
             <!-- テーブル部分 -->
             <div class="box-body table-responsive no-padding">
-              <%= render 'search_table' %>
+              <%= render partial: 'search_table', locals: { communities: @communities } %>
             </div>
           </div>
         </div>
