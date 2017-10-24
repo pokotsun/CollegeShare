@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
 
   # Devise: Where to redirect users once they have logged in
   protected
-  # def after_sign_up_path_for(resource)
-  #    # Or :prefix_to_your_route
-  # end
+  def after_sign_up_path_for(resource)
+    #Or :prefix_to_your_route
+  end
 
   def after_sign_in_path_for(resource)
     # defaultではログイン後にsearchのshowに飛ばす

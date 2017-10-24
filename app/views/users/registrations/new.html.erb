@@ -23,6 +23,12 @@
     <%= f.text_field :account_id, autofocus: true %>
   </div>
 
+  <!-- <div class="field">
+    <%= form_tag("URL", {multipart: true}) do %>
+    <p>image</p>
+    <input name="image" type="file">
+    <% end %>
+  </div> -->
 
   <div class="field">
     <%= f.label :password %>
@@ -41,5 +47,5 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-<!-- <%= render "users/shared/links" %> -->
+<%= debug params %>
+<%= render "users/shared/links" %>
