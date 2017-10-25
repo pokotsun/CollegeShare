@@ -1,51 +1,56 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<%= stylesheet_link_tag "users/registrations", :media => "all" %>
+<div style="padding-top:3%; padding-bottom:3%;">
+  <div class="login-logo" style="color:#d2d6de;">
+    <a href="#"><b>College</b>Share</a>
   </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-6 com-sm-offset-3" style="padding:3em; background-color:#fff; border-radius:8px">
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+      <h2 class="text-center">Sign up</h2>
+      <div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.label :email %><br>
+            <%= f.email_field :email, class: "form-control", autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :name %><br>
+            <%= f.text_field :name, class: "form-control", autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :major %><br>
+            <%= f.text_field :major, class: "form-control", autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :account_id %><br>
+            <%= f.text_field :account_id, class: "form-control", autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br>
+            <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br>
+            <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
+          </div>
+
+          <div class="actions text-center">
+            <%= f.submit "Sign up", class: "btn btn-info" %>
+          </div>
+        <% end %>
+        <%#= debug params %>
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :major %><br />
-    <%= f.text_field :major, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :account_id %><br />
-    <%= f.text_field :account_id, autofocus: true %>
-  </div>
-
-  <!-- <div class="field">
-    <%= form_tag("URL", {multipart: true}) do %>
-    <p>image</p>
-    <input name="image" type="file">
-    <% end %>
-  </div> -->
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= debug params %>
-<%= render "users/shared/links" %>
+</div>
