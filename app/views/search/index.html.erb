@@ -41,6 +41,7 @@
             <div class="box-body table-responsive no-padding">
               <%= render partial: 'search_table', locals: { communities: @communities } %>
             </div>
+            <%= paginate @communities %>
           </div>
         </div>
       </section>
