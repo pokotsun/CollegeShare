@@ -12,8 +12,13 @@
       <tr>
         <td><a><%= community.college_name.to_s %></a></td>
         <td><%= community.topics.count %></td>
-        <td><%= community.prefecture_id.to_s %></td>
-        <td><span class="label label-success">Approved</span></td>
+        <td><%= community.prefecture.name %></td>
+        <% user_communities = current_user.communities %>
+        <% if user_communities.include?(community) then %>
+          <td><span class="label label-success">Approved</span></td>
+        <% else %>
+          <td><span class="label label-danger">UnApproved</span></td>
+        <% end %>
         <td><%= community.favo_user_num %></td>
       </tr>
       <% end %>
