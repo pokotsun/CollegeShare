@@ -1,2 +1,0 @@
-class Nitification < ApplicationRecord
-end
