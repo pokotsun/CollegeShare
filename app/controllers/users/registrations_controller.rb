@@ -10,11 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    # p "はいはい"
-    # p resource.inspect
-    # user = resource
-    # p params
-    # params[:user][:profile_img] = "default.png"
     resource.update_attribute(:profile_img, "default.png")
     # user.update(params[:user])
   end
