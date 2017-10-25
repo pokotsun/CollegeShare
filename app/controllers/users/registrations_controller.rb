@@ -3,14 +3,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 #
 #   GET /resource/sign_up
-#   def new
-#     super
-#   end
+  def new
+    super
+  end
 #
   # POST /resource
   def create
     super
-    resource.update_attribute(:profile_img, "default.png")
+    resource.update_attribute(:profile_img, "sample_user_img3.jpg")
     # user.update(params[:user])
   end
 
