@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
+  before_action :authenticate_user!, :except=>[:start]
   def start
   end
 end
