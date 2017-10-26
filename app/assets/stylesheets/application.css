@@ -12,8 +12,8 @@
 *
 *= require_tree .
 *= require_self
+*= require index
 */
-@import 'index';
 @import 'admin-lte/bootstrap/css/bootstrap.min';
 @import 'admin-lte/dist/css/AdminLTE.min';
 @import 'admin-lte/dist/css/skins/skin-red.min';
