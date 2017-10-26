@@ -1,7 +1,9 @@
 {
   "name": "CollegeShare",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "admin-lte": "2.3.11"
+   },
   "devDependencies": {
     "admin-lte": "2.3.11"
   }
