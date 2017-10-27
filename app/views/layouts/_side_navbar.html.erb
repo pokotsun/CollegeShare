@@ -6,7 +6,7 @@
     <!-- サイドバーのアカウント部分 -->
     <div class="user-panel">
       <div class="pull-left image">
-        <%= image_tag(user_image_path(user), class:"img-circle", alt: "User Image") %>
+        <%= image_tag(user.user_image, class:"img-circle", alt: "User Image") %>
       </div>
       <div class="pull-left info">
         <p><%= user.name %></p>
