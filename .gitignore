@@ -9,6 +9,7 @@
 
 # Ignore bundler gems.
 vendor/bundle
+vendor/bundler
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
