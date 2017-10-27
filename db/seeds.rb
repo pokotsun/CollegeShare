@@ -37,7 +37,7 @@ user1.save!
 
 user2 = User.new(:name => "はやしみずき",
 :account_id => "meta713",
-:profile_img => "sample_user_img.jpg",
+:profile_img => "sample_user_img1.jpg",
 :major => "理系",
 :email => 'c@d.com',
 :password => 'aaabbb')
