@@ -10,7 +10,7 @@
     <tr>
       <% (communities).each do |community| %>
       <tr>
-        <td><a><%= community.college_name.to_s %></a></td>
+        <td><%= link_to community.college_name, topics_path %></td>
         <td><%= community.topics.count %></td>
         <td><%= community.prefecture.name %></td>
         <% user_communities = current_user.communities %>

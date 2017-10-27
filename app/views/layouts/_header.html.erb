@@ -86,22 +86,14 @@
           <!-- ドロップダウンのトグルボタン -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- ユーザーイメージ -->
-<<<<<<< HEAD
-            <%= image_tag(user_image_path(user), class:"user-image", alt: "User Image") %>
-=======
             <%= image_tag(user.user_image, class:"user-image", alt: "User Image") %>
->>>>>>> b0e07a6dd26d0ed43d7037948ba3af3660ebdd8e
             <!-- ユーザー名 -->
             <span class="hidden-xs"><%= user.name %></span>
           </a>
           <ul class="dropdown-menu">
             <!-- ユーザーイメージ In メニュ- -->
             <li class="user-header">
-<<<<<<< HEAD
-              <%= image_tag(user_image_path(user), class:"img-circle", alt: "User Image") %>
-=======
               <%= image_tag(user.user_image, class:"img-circle", alt: "User Image") %>
->>>>>>> b0e07a6dd26d0ed43d7037948ba3af3660ebdd8e
               <p>
                 <%= "@#{user.account_id}" %>
                 <small><%= user.email %></small>
