@@ -1,24 +1,21 @@
-<% (1..20).each do |i| %>
-<div class="box box-widge text-left <%= i % 3 == 0 ? 'collapsed-box' : '' %>">
+<% @topics.each do |topic| %>
+<div class="box box-widge text-left collapsed-box">
   <div class="box-header with-border">
     <div class="user-block">
-      <%= image_tag("user_img/sample_user_img2.jpg", class: "img-circle", alt: "User Image") %>
-      <span class="comment"><a href="#">オープンキャンパス行って来ました！<%= i %></a></span>
-      <span class="description">投稿者 ほげ - 7:30 PM Today<span class="text-right"></span></span>
+      <%= image_tag("user_img/#{User.find(topic.user_id).profile_img}", class: "img-circle", alt: "User Image") %>
+      <span class="comment"><%= link_to topic.title, topic%></span>
+      <span class="description"><%= User.find(topic.user_id).name %> - <%= l topic.created_at, format: :long%><span class="text-right"></span></span>
     </div>
     <div class="box-tools">
       <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="いいね！" style="cursor:default;">
-        <i class="fa fa-thumbs-o-up"></i> <%= i + 10%> Like</button>
-      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa <%= (i % 3 == 0) ? 'fa-plus' : 'fa-minus' %>"></i>
+        <i class="fa fa-thumbs-o-up"></i> <%= topic.good_num %> Like</button>
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
       </button>
     </div>
   </div>
   <div class="box-body">
     <!-- post text -->
-    <p class="text-justify">人口知能のこれから<br>
-      さて、これまで様々なことをお伝えしてきましたが、それでは、人工知能はこれからどのように発展してくのでしょうか。
-      人工知能とは、自ら思考するコンピュータであるとこれまでお伝えしてきましたが、実はそういった意味でいうと、定義でいうと人工知能そのものはまだ誰も発明できてはいません。
-      つまり、本当の意味での人口知能＝人間のように考えるコンピュータは...<a href="#">more</a>
+    <p class="text-justify"><%= truncate(topic.content, length:30, omission: '')%><%= link_to "...more", topic%>
     </p>
     <!-- Attachment -->
     <div class="attachment-block clearfix">
@@ -34,10 +31,9 @@
     </div>
     <!-- /.attachment-block -->
     <!-- fotter buttons -->
-    <!-- <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> シェア</button> -->
     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> いいね</button>
-    <button type="button" class="btn btn-info btn-xs">もっと読む</button>
-    <span class="pull-right text-muted small"><%= i + 10 %> いいね - <%= i %> コメント</span>
+    <%= link_to "もっと読む", topic, class: "btn btn-info btn-xs"%>
+    <span class="pull-right text-muted small"><%= topic.good_num %> いいね - ? コメント</span>
   </div>
 </div>
 <% end %>
