@@ -60,12 +60,19 @@ users = [user1, user2, user3]
   :prefecture_id => "#{i}",
   :major => "#{i%3}",)
   (1..5).each do |j|
-    Topic.create!(
+    topic = Topic.create!(
     :title => "タイトルその#{i + j}",
     :content => "内容その#{i + j}",
     :good_num => i + j + 10,
     :user_id => users[i%3].id,
     :community_id => community.id,)
+    (1..5).each do |k|
+      comment = Comment.create!(
+      :content => "話の内容#{i + j + k}" * 3,
+      :good_num => 1 + j + k,
+      :user_id => users[(i+j+k) % 3].id,
+      :topic_id => topic.id,)
+    end
   end
   users.each do |user|
     community_user = CommunityUser.create!(
