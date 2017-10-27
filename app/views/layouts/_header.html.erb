@@ -37,7 +37,7 @@
                   <a href="">
                     <div class="pull-left">
                       <!--ユーザーイメージ -->
-                      <%= image_tag("user_img/#{user.profile_img}", class: "img-circle", alt: "User Image") %>
+                      <%= image_tag(user_image_path(user), class: "img-circle", alt: "User Image") %>
                     </div>
                     <!-- メッセージ & ユーザーイメージ -->
                     <h4>
@@ -86,14 +86,14 @@
           <!-- ドロップダウンのトグルボタン -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- ユーザーイメージ -->
-            <%= image_tag("user_img/#{user.profile_img}", class:"user-image", alt: "User Image") %>
+            <%= image_tag(user_image_path(user), class:"user-image", alt: "User Image") %>
             <!-- ユーザー名 -->
             <span class="hidden-xs"><%= user.name %></span>
           </a>
           <ul class="dropdown-menu">
             <!-- ユーザーイメージ In メニュ- -->
             <li class="user-header">
-              <%= image_tag("user_img/#{user.profile_img}", class:"img-circle", alt: "User Image") %>
+              <%= image_tag(user_image_path(user), class:"img-circle", alt: "User Image") %>
               <p>
                 <%= "@#{user.account_id}" %>
                 <small><%= user.email %></small>

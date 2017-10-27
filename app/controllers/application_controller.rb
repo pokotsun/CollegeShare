@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   # Devise: Where to redirect users once they have logged in
+  include UsersHelper
+
   protected
   def after_sign_up_path_for(resource)
     #Or :prefix_to_your_route
