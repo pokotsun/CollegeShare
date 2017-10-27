@@ -54,7 +54,7 @@
         <% end %>
         <ul class="treeview-menu">
           <% (1..5).each  do |i| %>
-            <li><%= link_to("グループその#{i}", "#")%></li>
+            <li><%= link_to("グループその#{i}", "")%></li>
           <% end %>
         </ul>
       </li>
@@ -69,7 +69,7 @@
 
       <!-- ログアウトメニュー -->
       <li>
-        <%= link_to(destroy_user_session_path) do %>
+        <%= link_to(destroy_user_session_path, method: :DELETE) do %>
           <%= image_tag("icon/logout_icon.png", class:"fa fa-link side-bar-icon") %>
           <span>ログアウト</span>
         <% end %>
