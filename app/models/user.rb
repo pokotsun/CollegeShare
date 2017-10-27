@@ -6,4 +6,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def user_image
+    img = self.profile_img
+    if File.exist?(Rails.root.to_s + "/public/user_images/#{img}")
+      return "/user_images/#{img}"
+    else
+      return "user_img/#{img}"
+    end
+  end
+
 end
