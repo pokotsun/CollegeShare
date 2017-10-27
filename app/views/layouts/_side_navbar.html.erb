@@ -6,7 +6,7 @@
     <!-- サイドバーのアカウント部分 -->
     <div class="user-panel">
       <div class="pull-left image">
-        <%= image_tag("user_img/#{user.profile_img}", class:"img-circle", alt: "User Image") %>
+        <%= image_tag(user_image_path(user), class:"img-circle", alt: "User Image") %>
       </div>
       <div class="pull-left info">
         <p><%= user.name %></p>
@@ -69,7 +69,7 @@
 
       <!-- ログアウトメニュー -->
       <li>
-        <%= link_to("#") do %>
+        <%= link_to(destroy_user_session_path) do %>
           <%= image_tag("icon/logout_icon.png", class:"fa fa-link side-bar-icon") %>
           <span>ログアウト</span>
         <% end %>
