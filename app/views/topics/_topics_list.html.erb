@@ -2,9 +2,9 @@
 <div class="box box-widge text-left collapsed-box">
   <div class="box-header with-border">
     <div class="user-block">
-      <%= image_tag("user_img/#{User.find(topic.user_id).profile_img}", class: "img-circle", alt: "User Image") %>
+      <%= image_tag(user_image_path(topic.user), class: "img-circle", alt: "User Image") %>
       <span class="comment"><%= link_to topic.title, topic%></span>
-      <span class="description"><%= User.find(topic.user_id).name %> - <%= l topic.created_at, format: :long%><span class="text-right"></span></span>
+      <span class="description"><%= topic.user.name %> - <%= l topic.created_at, format: :exlong%><span class="text-right"></span></span>
     </div>
     <div class="box-tools">
       <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="いいね！" style="cursor:default;">
@@ -21,7 +21,7 @@
     <div class="attachment-block clearfix">
       <%= image_tag("static/start_background.png", class: "attachment-img", alt: "Attachement Image") %>
       <div class="attachment-pushed">
-        <h4 class="attachment-heading"><a href="#">College Share</a></h4>
+        <h4 class="attachment-heading"><%= link_to "College Share", search_index_path%></h4>
         <div class="attachment-text">
           あなたが本当に行きたい大学、行ってよかったと思う大学を選択するためのサービス。あなたの行きたいが、きっと見つかる。
         </div>
