@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    # defaultではログイン後にsearchのshowに飛ばす
-    search_index_path
+    # defaultではログイン後にcommunitiesのshowに飛ばす
+    communities_path
   end
 
   def after_sign_out_path_for(resource)

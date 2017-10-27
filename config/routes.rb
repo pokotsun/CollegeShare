@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   root 'static_pages#start'
   get 'static_pages/home'
 
-  resources :search
+  resources :communities do
+    resources :topics
+  end
   resources :topics
   resources :groups
-  resources :communities
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
