@@ -41,8 +41,12 @@
             <div class="box-body table-responsive no-padding">
               <%= render partial: 'search_table', locals: { communities: @communities } %>
             </div>
-            <%= paginate @communities %>
-            <div><%= @communities.total_count %>件中<%= @communities.offset_value %>~<%= @communities.offset_value + @communities.length %>件</div>
+            <div class="center">
+              <%= paginate @communities %>
+            </div>
+            <div class="right">
+              <%= numofcases(@communities) %>
+            </div>
           </div>
         </div>
       </section>
