@@ -19,11 +19,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def user_image
-    img = self.profile_img
-    if File.exist?(Rails.root.to_s + "/public/user_images/#{img}")
-      return "/user_images/#{img}"
+
+    if !self.profile_img.nil? then
+      img = self.profile_img
+      if File.exist?(Rails.root.to_s + "/public/user_images/#{img}") then
+        return "/user_images/#{img}"
+      end
     else
-      return "user_img/#{img}"
+      return "user_img/default.png"
     end
   end
 

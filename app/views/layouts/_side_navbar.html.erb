@@ -61,7 +61,7 @@
 
       <!-- アカウントメニュー -->
       <li>
-        <%= link_to("#") do %>
+        <%= link_to(edit_user_registration_path, method: :GET) do %>
           <%= image_tag("icon/account_icon.png", class:"fa fa-link side-bar-icon") %>
           <span>アカウント</span>
         <% end %>
