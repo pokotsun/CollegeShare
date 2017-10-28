@@ -3,7 +3,7 @@
   <div class="box-header with-border">
     <div class="user-block">
       <!-- "user_img/#{User.find(topic.user_id).profile_img}" -->
-      <%= image_tag("user_img/sample_user_img3", class: "img-circle", alt: "User Image") %>
+      <%= image_tag(topic.user.user_image, class: "img-circle", alt: "User Image") %>
       <span class="comment"><%= link_to topic.title, topic%></span>
       <span class="description"><%= User.find(topic.user_id).name %> - <%= l topic.created_at, format: :long%><span class="text-right"></span></span>
     </div>
