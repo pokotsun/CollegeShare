@@ -1,0 +1,11 @@
+class CreateChannelComments < ActiveRecord::Migration[5.1]
+  def change
+    create_table :channel_comments do |t|
+      t.string :content
+      t.integer :user_id
+      t.integer :channel_id
+
+      t.timestamps
+    end
+  end
+end

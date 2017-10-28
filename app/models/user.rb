@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :topics, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :topic_comments, dependent: :destroy
+  has_many :channel_comments, dependent: :destroy
+
   # コミュニティとの関係 記述
   has_many :community_users
   has_many :communities, through: :community_users

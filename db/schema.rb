@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028032415) do
+ActiveRecord::Schema.define(version: 20171028054826) do
+
+  create_table "channel_comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "channel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "channels", force: :cascade do |t|
     t.string "title"
@@ -67,6 +75,15 @@ ActiveRecord::Schema.define(version: 20171028032415) do
   create_table "tags", force: :cascade do |t|
     t.string "title"
     t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topic_comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "good_num"
+    t.integer "user_id"
+    t.integer "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

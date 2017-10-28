@@ -27,78 +27,85 @@ prefectures = Prefecture.create!(
   {name: "熊本県"}, {name: "大分県"}, {name: "宮崎県"},
   {name: "鹿児島県"}, {name: "沖縄県"},])
 
-user1 = User.new(:name => "こにしあつし",
-:account_id => "koniatsu",
-:profile_img => "default",
-:major => "理系",
-:email => 'a@b.com',
-:password => 'aaabbb')
-user1.save!
+  user1 = User.new(:name => "こにしあつし",
+  :account_id => "koniatsu",
+  :profile_img => "default",
+  :major => "理系",
+  :email => 'a@b.com',
+  :password => 'aaabbb')
+  user1.save!
 
-user2 = User.new(:name => "はやしみずき",
-:account_id => "meta713",
-:profile_img => "sample_user_img1.jpg",
-:major => "理系",
-:email => 'c@d.com',
-:password => 'aaabbb')
-user2.save!
+  user2 = User.new(:name => "はやしみずき",
+  :account_id => "meta713",
+  :profile_img => "sample_user_img1.jpg",
+  :major => "理系",
+  :email => 'c@d.com',
+  :password => 'aaabbb')
+  user2.save!
 
-user3 = User.new(:name => "ぽこつん",
-:account_id => "pokotsun",
-:profile_img => "sample_user_img3.jpg",
-:major => "理系",
-:email => 'e@f.com',
-:password => 'aaabbb')
-user3.save!
+  user3 = User.new(:name => "ぽこつん",
+  :account_id => "pokotsun",
+  :profile_img => "sample_user_img3.jpg",
+  :major => "理系",
+  :email => 'e@f.com',
+  :password => 'aaabbb')
+  user3.save!
 
-users = [user1, user2, user3]
+  users = [user1, user2, user3]
 
-(1..15).each do |i|
-  community = Community.create!(
-  :college_name => "学校その#{i}",
-  :campus_name => "第#{i}キャンパス",
-  :prefecture_id => "#{i}",
-  :major => "#{i%3}",)
-  (1..5).each do |j|
-    topic = Topic.create!(
-    :title => "タイトルその#{i + j}",
-    :content => "内容その#{i + j}",
-    :good_num => i + j + 10,
-    :user_id => users[i%3].id,
-    :community_id => community.id,)
-    (1..5).each do |k|
-      comment = Comment.create!(
-      :content => "話の内容#{i + j + k}" * 3,
-      :good_num => 1 + j + k,
-      :user_id => users[(i+j+k) % 3].id,
-      :topic_id => topic.id,)
-    end
-  end
+  # データ作っていく
+  (1..10).each do |i|
+    # communityの生成
+    community = Community.create!(
+    :college_name => "学校その#{i}",
+    :campus_name => "第#{i}キャンパス",
+    :prefecture_id => "#{i}",
+    :major => "#{i%3}",)
 
-  # groupの生成
-  group = Group.create!(
+    # groupの生成
+    group = Group.create!(
     :name => "グループ#{i}",)
-  # channelの生成
-  (1..5).each do |l|
-    channel = Channel.create!(
-    :title => "タイトルその#{j}",
-    :user_id => users[l%3].id,
-    :group_id => group.id,)
-    (1..5).each do |k|
-      comment = Comment.create!(
-      :content => "チャンネルの話の内容#{l}" * 3,
-      :good_num => 1 + l,
-      :user_id => users[l % 3].id,
-      :topic_id => channel.id,)
-    end
-  end
 
-  users.each do |user|
-    community_user = CommunityUser.create!(
+    # ユーザーごとにコミュニティとグループのm対nの関係を作る
+    users.each do |user|
+      community_user = CommunityUser.create!(
       :user_id => user.id,
       :community_id => community.id,)
-    group_user = GroupUser.create!(
+      
+      group_user = GroupUser.create!(
       :user_id => user.id,
       :group_id => group.id,)
+    end
+
+    (1..5).each do |j|
+      # トピックの生成
+      topic = Topic.create!(
+      :title => "タイトルその#{i + j}",
+      :content => "内容その#{i + j}",
+      :good_num => i + j + 10,
+      :user_id => users[i%3].id,
+      :community_id => community.id,)
+
+      # チャンネルの作成
+      channel = Channel.create!(
+      :title => "タイトルその#{i + j}",
+      :user_id => users[j%3].id,
+      :group_id => group.id,)
+
+      # 各コメントの作成
+      (1..5).each do |k|
+        # トピックコメントの作成
+        topic_comment = TopicComment.create!(
+        :content => "話の内容#{i + j + k}" * 3,
+        :good_num => 1 + j + k,
+        :user_id => users[(i+j+k) % 3].id,
+        :topic_id => topic.id,)
+
+        # チャンネルコメントを生成
+        channel_comment = ChannelComment.create!(
+        :content => "チャンネルの話の内容#{i + j + k}" * 3,
+        :user_id => users[k % 3].id,
+        :channel_id => channel.id,)
+      end
+    end
   end
-end
