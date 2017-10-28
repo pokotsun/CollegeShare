@@ -1,0 +1,2 @@
+$(".info_label[topic-id='<%= @topic.id%>']").html('<%= @topic.good_num %> いいね - <%= @topic.comments.count %> コメント');
+$(".good_count[topic-id='<%= @topic.id%>']").html('<%= @topic.good_num %>');

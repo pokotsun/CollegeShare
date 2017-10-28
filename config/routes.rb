@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   resources :communities do
     resources :topics do
+      collection do
+        post :update_good_num_topic
+      end
       member do
         post :create_comment
         post :update_good_num

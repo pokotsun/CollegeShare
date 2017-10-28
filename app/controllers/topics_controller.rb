@@ -17,6 +17,11 @@ class TopicsController < ApplicationController
     @topic.update(good_num: @topic.good_num + 1)
   end
 
+  def update_good_num_topic
+    @topic = Topic.find(params[:topic_id])
+    @topic.update(good_num: @topic.good_num + 1)
+  end
+
   def create
     @topic = Topic.new(create_topic_param)
     respond_to do |format|
