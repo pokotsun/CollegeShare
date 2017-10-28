@@ -8,7 +8,7 @@
     </div>
     <div class="box-tools">
       <!-- <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="いいね！" style="cursor:default;"> -->
-        <!-- <i class="fa fa-thumbs-o-up"></i> Like</button> -->
+      <!-- <i class="fa fa-thumbs-o-up"></i> Like</button> -->
       <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal-default" title="トピック投稿">
         <i class="fa fa-share"></i>投稿
       </button>
@@ -22,43 +22,44 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">トピック編集</h4>
-      </div>
-      <%= form_for(@topic, html: {role: "form"}) do |f| %>
-      <div class="modal-body text-left">
-          <div class="form-group">
-            <%= f.label :title, "タイトル" %>
-            <%= f.text_field :title, class: "form-control", type: "email", placeholder: "タイトル" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :content, "コンテンツ" %>
-            <%= f.text_area :content, rows: 4, cols: 40, class: "form-control", placeholder: "タイトル" %>
-          </div>
-          <div class="form-group">
-            <div class="attachment-block box collapsed-box" style="padding-bottom:0;">
-              <div class="box-header">
-                <label for="exampleInputFile">写真</label>
-                <div class="box-tools">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                  </button>
+          <h4 class="modal-title">トピック編集</h4>
+        </div>
+        <% post_topic = Topic.new unless @topic %>
+        <%= form_for(post_topic, :url => community_topics_path(params[:community_id], post_topic)) do |f| %>
+          <div class="modal-body text-left">
+            <div class="form-group">
+              <%= f.label :title, "タイトル" %>
+              <%= f.text_field :title, class: "form-control", type: "email", placeholder: "タイトル" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :content, "コンテンツ" %>
+              <%= f.text_area :content, rows: 4, cols: 40, class: "form-control", placeholder: "タイトル" %>
+            </div>
+            <div class="form-group">
+              <div class="attachment-block box collapsed-box" style="padding-bottom:0;">
+                <div class="box-header">
+                  <label for="exampleInputFile">写真</label>
+                  <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="box-body" style="padding-top:0;">
-                <input type="file" id="exampleInputFile">
-                <p class="help-block small">タイトル<input type="email" class="form-control input-sm" id="title" placeholder="タイトル"></p>
-                <p class="help-block small">コメント<textarea type="email" class="form-control input-sm" id="comment" placeholder="コメント"></textarea></p>
+                <div class="box-body" style="padding-top:0;">
+                  <input type="file" id="exampleInputFile">
+                  <p class="help-block small">タイトル<input type="email" class="form-control input-sm" id="title" placeholder="タイトル"></p>
+                  <p class="help-block small">コメント<textarea type="email" class="form-control input-sm" id="comment" placeholder="コメント"></textarea></p>
+                </div>
               </div>
             </div>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
+            <%= f.submit "投稿する", type: "button", class: "btn btn-info" %>
+          </div>
+        <% end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
-        <%= f.submit "投稿する", type: "button", class: "btn btn-info" %>
-      </div>
-      <% end %>
+      <!-- /.modal-content -->
     </div>
-    <!-- /.modal-content -->
+    <!-- /.modal-dialog -->
   </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+  <!-- /.modal -->
