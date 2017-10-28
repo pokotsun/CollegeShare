@@ -21,7 +21,7 @@
 
       <!-- さがすメニュー -->
       <li class="active">
-        <%= link_to("#") do %>
+        <%= link_to(communities_path) do %>
           <%= image_tag("icon/search_white.png", class:"fa fa-link side-bar-icon") %>
           <span>さがす</span>
         <% end %>
@@ -54,14 +54,15 @@
         <% end %>
         <ul class="treeview-menu">
           <% user.groups.each  do |g| %>
-            <li><%= link_to(g.name, group_path(g[:id]), method: :GET) %></li>
+          <!-- group_path(g[:id]) -->
+            <li><%= link_to(g.name, "#", method: :GET) %></li>
           <% end %>
         </ul>
       </li>
 
       <!-- アカウントメニュー -->
       <li>
-        <%= link_to("#") do %>
+        <%= link_to(edit_user_registration_path, method: :GET) do %>
           <%= image_tag("icon/account_icon.png", class:"fa fa-link side-bar-icon") %>
           <span>アカウント</span>
         <% end %>

@@ -14,7 +14,8 @@ gem 'kaminari', '~> 0.17.0'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
-
+gem 'carrierwave'
+gem 'mini_magick'
 # icheck入れる
 gem 'icheck-rails'
 gem 'font-awesome-sass'

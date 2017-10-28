@@ -20,9 +20,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 #   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    p "ほげほげ"
+    p params[:image]
+    if params[:image]
+      image = params[:image]
+      File.binwrite("user_images/#{resource.account_id}", image.read)
+      resource.update_attribute(:profile_img, "#{resource.account_id}")
+    end
+  end
 
   # DELETE /resource
   # def destroy
