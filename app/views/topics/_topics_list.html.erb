@@ -33,7 +33,7 @@
     <!-- fotter buttons -->
     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> いいね</button>
     <%= link_to "もっと読む", community_topic_path(@community.id, topic.id), class: "btn btn-info btn-xs"%>
-    <span class="pull-right text-muted small"><%= topic.good_num %> いいね - <%= topic.comments.count %> コメント</span>
+    <span class="pull-right text-muted small"><%= topic.good_num %> いいね - <%= topic.topic_comments.count %> コメント</span>
   </div>
 </div>
 <% end %>
