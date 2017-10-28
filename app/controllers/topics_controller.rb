@@ -3,7 +3,8 @@ class TopicsController < ApplicationController
   before_action :set_current_topic, only: [:show, :create_comment, :update_good_num]
 
   def index
-    @topics = Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
+    @sort = params[:sort].nil?? "0" : params[:sort]
+    @topics = sort_topics
     @topic = Topic.new()
   end
 
@@ -12,7 +13,7 @@ class TopicsController < ApplicationController
   end
 
   def update_good_num
-    @topic.update(good_num: 0)
+    @topic.update(good_num: @topic.good_num + 1)
   end
 
   def create
@@ -46,5 +47,22 @@ class TopicsController < ApplicationController
 
     def create_comment_param
       params.require(:comment).permit(:content).merge(good_num: 0, user_id: current_user.id, topic_id: params[:id])
+    end
+
+    def sort_topics
+      case params[:sort].to_i
+      when 0 then
+        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
+      when 1 then
+        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:title)
+      when 2 then
+        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:good_num)
+      when 3 then
+        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:created_at).reverse_order
+      when 4 then
+        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:created_at)
+      else
+        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
+      end
     end
 end
