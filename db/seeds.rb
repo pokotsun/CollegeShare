@@ -77,8 +77,22 @@ users = [user1, user2, user3]
 
   # groupの生成
   group = Group.create!(
-    :name => "グループ#{i}",
-  )
+    :name => "グループ#{i}",)
+  # channelの生成
+  (1..5).each do |l|
+    channel = Channel.create!(
+    :title => "タイトルその#{j}",
+    :user_id => users[l%3].id,
+    :group_id => group.id,)
+    (1..5).each do |k|
+      comment = Comment.create!(
+      :content => "チャンネルの話の内容#{l}" * 3,
+      :good_num => 1 + l,
+      :user_id => users[l % 3].id,
+      :topic_id => channel.id,)
+    end
+  end
+
   users.each do |user|
     community_user = CommunityUser.create!(
       :user_id => user.id,
