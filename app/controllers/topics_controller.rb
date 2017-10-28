@@ -4,7 +4,8 @@ class TopicsController < ApplicationController
 
   def index
     @sort = params[:sort].nil?? "0" : params[:sort]
-    @topics = sort_topics
+    @search_name = params[:search_name].nil?? "" : params[:search_name]
+    @topics = search_topics
     @topic = Topic.new()
   end
 
@@ -49,20 +50,31 @@ class TopicsController < ApplicationController
       params.require(:comment).permit(:content).merge(good_num: 0, user_id: current_user.id, topic_id: params[:id])
     end
 
-    def sort_topics
+    def search_topics
+      topics = Topic.where(community_id: params[:community_id])
+      topics = search_name(topics)
+      topics = sort_topics(topics)
+      topics
+    end
+
+    def sort_topics(topics)
       case params[:sort].to_i
       when 0 then
-        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
+        topics.page(params[:page]).per(10).order(:id)
       when 1 then
-        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:title)
+        topics.page(params[:page]).per(10).order(:title)
       when 2 then
-        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:good_num)
+        topics.page(params[:page]).per(10).order(:good_num)
       when 3 then
-        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:created_at).reverse_order
+        topics.page(params[:page]).per(10).order(:created_at).reverse_order
       when 4 then
-        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:created_at)
+        topics.page(params[:page]).per(10).order(:created_at)
       else
-        Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
+        topics.page(params[:page]).per(10).order(:id)
       end
+    end
+
+    def search_name(topics)
+      topics = params[:search_name].nil?? topics : topics.where("title like '%#{params[:search_name]}%'")
     end
 end
