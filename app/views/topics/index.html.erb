@@ -10,10 +10,10 @@
   <div class="content-wrapper">
     <!-- Main content header-->
     <section class="content-header">
-      <h1>九州工業大学 情報工学部 飯塚キャンパス</h1>
+      <h1><%= @community.college_name %></h1>
       <ol class="breadcrumb">
         <li><%= link_to "一覧", communities_path %></li>
-        <li>九州工業大学 情報工学部 飯塚キャンパス</li>
+        <li><%= @community.college_name %></li>
       </ol>
     </section>
     <!-- Main content -->
@@ -48,7 +48,7 @@
             <!-- テーブル部分 -->
             <div class="box-body">
               <%= render partial: "new_topic", locals: { user: current_user }, remote: true%>
-              <%= render partial: "topics_list", locals: { user: current_user }, remote: true%>
+              <%= render partial: "topics_list", locals: { topics: @topics, user: current_user }, remote: true%>
             </div>
             <%= paginate @topics %>
           </div>

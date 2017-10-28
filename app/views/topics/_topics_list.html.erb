@@ -1,9 +1,9 @@
-<% @topics.each do |topic| %>
+<% topics.each do |topic| %>
 <div class="box box-widge text-left collapsed-box">
   <div class="box-header with-border">
     <div class="user-block">
       <%= image_tag(topic.user.user_image, class: "img-circle", alt: "User Image") %>
-      <span class="comment"><%= link_to topic.title, community_topic_path(params[:community_id], topic.id) %></span>
+      <span class="comment"><%= link_to topic.title, community_topic_path(@community.id, topic.id) %></span>
       <span class="description"><%= topic.user.name %> - <%= l topic.created_at, format: :exlong%><span class="text-right"></span></span>
     </div>
     <div class="box-tools">
@@ -15,7 +15,7 @@
   </div>
   <div class="box-body">
     <!-- post text -->
-    <p class="text-justify"><%= truncate(topic.content, length:30, omission: '')%><%= link_to "...more", community_topic_path(params[:community_id], topic.id) %>
+    <p class="text-justify"><%= truncate(topic.content, length:60, omission: '...')%><%#= link_to "...more", community_topic_path(params[:community_id], topic.id) %>
     </p>
     <!-- Attachment -->
     <div class="attachment-block clearfix">
@@ -32,7 +32,7 @@
     <!-- /.attachment-block -->
     <!-- fotter buttons -->
     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> いいね</button>
-    <%= link_to "もっと読む", community_topic_path(params[:community_id], topic.id), class: "btn btn-info btn-xs"%>
+    <%= link_to "もっと読む", community_topic_path(@community.id, topic.id), class: "btn btn-info btn-xs"%>
     <span class="pull-right text-muted small"><%= topic.good_num %> いいね - <%= topic.comments.count %> コメント</span>
   </div>
 </div>

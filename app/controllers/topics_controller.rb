@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  #before_action :set_current_, only: [:show, :edit, :update, :destroy]
+  before_action :set_current_community, only: [:show, :index, :create]
   def index
     @topics = Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
   end
@@ -15,5 +15,9 @@ class TopicsController < ApplicationController
   private
     def create_topic_param
       params.require(:topic).permit(:title, :content).merge(good_num: 0, user_id: current_user.id, community_id: null )
+    end
+
+    def set_current_community
+      @community = Community.find(params[:community_id])
     end
 end
