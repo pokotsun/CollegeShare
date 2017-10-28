@@ -74,9 +74,17 @@ users = [user1, user2, user3]
       :topic_id => topic.id,)
     end
   end
+
+  # groupの生成
+  group = Group.create!(
+    :name => "グループ#{i}",
+  )
   users.each do |user|
     community_user = CommunityUser.create!(
       :user_id => user.id,
       :community_id => community.id,)
+    group_user = GroupUser.create!(
+      :user_id => user.id,
+      :group_id => group.id,)
   end
 end

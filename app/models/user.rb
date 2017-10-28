@@ -1,8 +1,13 @@
 class User < ApplicationRecord
   has_many :topics, dependent: :destroy
   has_many :comments, dependent: :destroy
+  # コミュニティとの関係 記述
   has_many :community_users
   has_many :communities, through: :community_users
+  # グループとの関係 記述
+  has_many :group_users
+  has_many :groups, through: :group_users
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
