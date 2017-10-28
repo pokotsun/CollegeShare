@@ -1,0 +1,30 @@
+<% channels.each do |channel| %>
+<div class="box box-widge text-left collapsed-box">
+  <div class="box-header with-border">
+    <div class="user-block">
+      <%= image_tag(channel.user.user_image, class: "img-circle", alt: "User Image") %>
+      <span class="comment"><%= link_to channel.title, community_topic_path(@group.id, channel.id) %></span>
+      <span class="description"><%= channel.user.name %> - <%= l channel.created_at, format: :exlong%><span class="text-right"></span></span>
+    </div>
+  </div>
+  <div class="box-body">
+    <!-- Attachment -->
+    <div class="attachment-block clearfix">
+      <%= image_tag("static/start_background.png", class: "attachment-img", alt: "Attachement Image") %>
+      <div class="attachment-pushed">
+        <h4 class="attachment-heading"><%= link_to "College Share", communities_path%></h4>
+        <div class="attachment-text">
+          あなたが本当に行きたい大学、行ってよかったと思う大学を選択するためのサービス。あなたの行きたいが、きっと見つかる。
+        </div>
+        <!-- /.attachment-text -->
+      </div>
+      <!-- /.attachment-pushed -->
+    </div>
+    <!-- /.attachment-block -->
+    <!-- fotter buttons -->
+    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> いいね</button>
+    <%= link_to "もっと読む", group_channel_path(@group.id, channel.id), class: "btn btn-info btn-xs"%>
+    <span class="pull-right text-muted small"><%= 30 %> いいね - <%= channel.channel_comments.count %> コメント</span>
+  </div>
+</div>
+<% end %>

@@ -2,7 +2,6 @@ class TopicsController < ApplicationController
   before_action :set_current_community, only: [:show, :index, :create]
   def index
     @topics = Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
-    @topic = Topic.new()
   end
 
   def show

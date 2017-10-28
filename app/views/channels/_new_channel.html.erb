@@ -3,14 +3,14 @@
     <div class="user-block">
       <!-- ここはユーザの写真  -->
       <%= image_tag(user.user_image, class: "img-circle", alt: "User Image") %>
-      <span class="comment">トピック投稿</span>
-      <span class="description">トピックを共有しよう！</span>
+      <span class="comment">チャンネル作成</span>
+      <span class="description">話す内容ごとにチャンネルを作ろう!</span>
     </div>
     <div class="box-tools">
       <!-- <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="いいね！" style="cursor:default;"> -->
       <!-- <i class="fa fa-thumbs-o-up"></i> Like</button> -->
       <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal-default" title="トピック投稿">
-        <i class="fa fa-share"></i>投稿
+        <i class="fa fa-share"></i>作成
       </button>
     </div>
   </div>
@@ -22,18 +22,14 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">トピック編集</h4>
+          <h4 class="modal-title">チャンネル作成</h4>
         </div>
-        <%= topic = Topic.new()  %>
-        <%= form_for(topic, :url => { :controller => :topics, :action => :create}) do |f| %>
+        <% channel = Channel.new() %>
+        <%= form_for(channel, :url => { :controller => :channels, :action => :create}) do |f| %>
           <div class="modal-body text-left">
             <div class="form-group">
               <%= f.label :title, "タイトル" %>
               <%= f.text_field :title, class: "form-control", type: "text", placeholder: "タイトル" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :content, "コンテンツ" %>
-              <%= f.text_area :content, rows: 4, cols: 40, class: "form-control", placeholder: "タイトル" %>
             </div>
             <div class="form-group">
               <div class="attachment-block box collapsed-box" style="padding-bottom:0;">
@@ -54,7 +50,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
-            <%= f.submit "投稿する", class: "btn btn-info" %>
+            <%= f.submit "作成する", class: "btn btn-info" %>
           </div>
         <% end %>
       </div>

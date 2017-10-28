@@ -1,11 +1,8 @@
 <div class="wrapper">
-
   <!-- header -->
   <%= render partial: 'layouts/header', locals: { user: current_user }, remote: true %>
-
   <!-- sidebar -->
   <%= render partial: 'layouts/side_navbar', locals: { user: current_user },  remote: true %>
-
   <!-- Main部分 -->
   <div class="content-wrapper">
     <!-- Main content header-->
@@ -23,7 +20,7 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-              <h2 class="box-title">トピック一覧</h2>
+              <h2 class="box-title">チャンネル一覧</h2>
               <div class="box-tools">
                 <div class="form-group col-md-6">
                   <select class="form-control select2 select2-hidden-accessible sort-select-box" tabindex="-1" aria-hidden="true">
@@ -44,14 +41,14 @@
                 </div>
               </div>
             </div>
-            <!-- box-header終わり -->
+            <!-- /.box-header -->
             <!-- テーブル部分 -->
             <div class="box-body">
               <%= render partial: "new_channel", locals: { user: current_user }, remote: true%>
-              <%= render partial: "channels_list", locals: { topics: @groups.channels, user: current_user }, remote: true%>
+              <%= render partial: "channels_list", locals: { channels: @channels }, remote: true%>
             </div>
             <%= paginate @channels %>
-          </div>
+          </div> <!-- /.box -->
         </div>
       </section>
       <!-- /.content -->

@@ -15,10 +15,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
+  # Userのイメージパスを返す、パスに問題があったらdefaultを返す
   def user_image
-    img = profile_img
-    if File.exist?(Rails.root.to_s + "/public/user_images/#{img}") then
-      return "/user_images/#{img}"
+    if !profile_img.nil? && File.exist?(Rails.root.to_s + "/public/user_images/#{profile_img}") then
+      return "/user_images/#{profile_img}"
     else
       return "user_img/default"
     end
