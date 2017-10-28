@@ -53,8 +53,8 @@
           </span>
         <% end %>
         <ul class="treeview-menu">
-          <% (1..5).each  do |i| %>
-            <li><%= link_to("グループその#{i}", "")%></li>
+          <% user.groups.each  do |g| %>
+            <li><%= link_to(g.name, "#") %></li>
           <% end %>
         </ul>
       </li>
