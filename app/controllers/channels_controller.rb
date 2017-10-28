@@ -4,6 +4,7 @@ class ChannelsController < ApplicationController
     @channels = Group.find(params[:group_id]).channels.page(params[:page]).per(10).order(:id)
   end
   def show
+    @channel = Channel.find(params[:id])
   end
 
   private

@@ -7,7 +7,7 @@ class Topic < ApplicationRecord
 
   def commenters
     commenters = []
-    for comment in comments
+    for comment in topic_comments
       user = comment.user
       if !commenters.include?(user)
         commenters.push(user)

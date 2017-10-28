@@ -50,14 +50,14 @@
                 </p>
                 <!-- Social sharing buttons -->
                 <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-                <span class="pull-right text-muted small"> <%= @topic.good_num %> いいね - <%= @topic.comments.count %> コメント</span>
+                <span class="pull-right text-muted small"> <%= @topic.good_num %> いいね - <%= @topic.topic_comments.count %> コメント</span>
               </div>
               <!-- topic詳細ページのテキスト部分終了 -->
 
               <!-- コメント欄 -->
               <div class="box box-foot direct-chat direct-chat-info topic-comment">
                 <!-- コメントリスト -->
-                <%= render partial: 'comment_list', locals: {comments: @topic.comments}, remote: true %>
+                <%= render partial: 'layouts/comment_list', locals: {comments: @topic.topic_comments}, remote: true %>
                 <!-- コメント投稿欄 -->
                 <div class="box-footer">
                   <div class="input-group">

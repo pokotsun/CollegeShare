@@ -3,7 +3,7 @@
   <div class="box-header with-border">
     <div class="user-block">
       <%= image_tag(channel.user.user_image, class: "img-circle", alt: "User Image") %>
-      <span class="comment"><%= link_to channel.title, community_topic_path(@group.id, channel.id) %></span>
+      <span class="comment"><%= link_to channel.title, group_channel_path(@group.id, channel.id) %></span>
       <span class="description"><%= channel.user.name %> - <%= l channel.created_at, format: :exlong%><span class="text-right"></span></span>
     </div>
   </div>
