@@ -4,7 +4,6 @@ class Topic < ApplicationRecord
   belongs_to :user, required: true, foreign_key: 'user_id', class_name: "User"
   validates :community_id, presence: true
 
-
   def commenters
     commenters = []
     for comment in topic_comments
