@@ -9,11 +9,11 @@
     <!-- Main content header-->
     <div id="topic-root">
       <section class="content-header">
-        <h1>九州工業大学 情報工学部 飯塚キャンパス</h1>
+        <h1><%= @topic.community.college_name %></h1>
         <ol class="breadcrumb">
-          <li><a href="">一覧</a></li>
-          <li><a href="">九州工業大学 情報工学部 飯塚キャンパス</a></li>
-          <li>オープンキャンパス行ってきました</li>
+          <li><%= link_to "一覧", communities_path %></li>
+          <li><%= link_to @topic.community.college_name, community_topics_path(@topic.community.id) %></li>
+          <li><%= @topic.title %></li>
         </ol>
         <div class="text-right" style="margin-top:0.5em;">
           <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#modal-default">
@@ -29,8 +29,8 @@
               <!-- topic詳細ページの見出し部分 -->
               <div class="box-header with-border">
                 <div class="col-md-10">
-                  <h2 class="topic-title">オープンキャンパス行ってきました</h2>
-                  <h5 class="contributor">投稿者: ふがふが</h5>
+                  <h2 class="topic-title"><%= @topic.title %></h2>
+                  <h5 class="contributor">投稿者: <%= @topic.user.name %></h5>
                 </div>
                 <div class="col-md-2 thumbs-up-wrapper">
                   <div class="col-md-6"></div>
@@ -38,35 +38,30 @@
                     <i class="fa fa-thumbs-o-up"></i>
                   </div>
                   <div class="col-md-3">
-                    <span class="info-box-number">30</span>
+                    <span class="info-box-number"><%= @topic.good_num %></span>
                   </div>
                 </div>
               </div>
               <!-- topic詳細ページの見出し部分終了 -->
               <!-- topic詳細ページのテキスト部分 -->
               <div class="box-body">
-                <p class="topic-text">
-                  オープンキャンパスとは、学校法人がその学校へ入学を希望・考慮している者に対して、施設内を公開し、学校への関心を深めて貰おうとする、入学促進イベントの一種。
-                  日本では、主に大学、専門学校、高等学校などが開催しているが、大学以外では「体験入学」や「オープンスクール」と称することも多い。
-                  似た制度でオープンカレッジがあるが、こちらは一般の人の生涯学習を目的にして大学が行う専門の講座のことである。
-                  1990年代以前は、高校生やその父兄を対象とした大学構内の積極的な公開は行われていなかったが、いわゆる少子化を背景に、受験生の確保を目的に1990年代後半頃から一部の大学で行われるようになった。その後2000年代になると偏差値が高いとされる、いわゆる難関校と呼ばれる大学でも開催されるようになったが、これは少子化を背景としたものではなく、よりミスマッチの少ない学生を入学させたいという意図から行われている。
-                  なお、オープンキャンパスと銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。
+                <p class="topic-text text-justify">
+                  <%= @topic.content %>
                 </p>
                 <!-- Social sharing buttons -->
                 <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-                <button type="button" class="btn btn-success btn-xs">もっと読む</button>
-                <span class="pull-right text-muted">45 likes - 2 comments</span>
+                <span class="pull-right text-muted small"> <%= @topic.good_num %> いいね - <%= @topic.comments.count %> コメント</span>
               </div>
               <!-- topic詳細ページのテキスト部分終了 -->
 
               <!-- コメント欄 -->
               <div class="box box-foot direct-chat direct-chat-info topic-comment">
                 <!-- コメントリスト -->
-                <%= render 'layouts/comments_list' %>
+                <%= render partial: 'comment_list', locals: {comments: @topic.comments}, remote: true %>
                 <!-- コメント投稿欄 -->
                 <div class="box-footer">
                   <div class="input-group">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <input type="text" name="message" placeholder="コメント入力" class="form-control">
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-info btn-flat">Send</button>
                     </span>

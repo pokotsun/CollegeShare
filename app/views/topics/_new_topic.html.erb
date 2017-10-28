@@ -24,12 +24,11 @@
           <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">トピック編集</h4>
         </div>
-        <% post_topic = Topic.new unless @topic %>
-        <%= form_for(post_topic, :url => community_topics_path(params[:community_id], post_topic)) do |f| %>
+        <%= form_for(@topic, :url => { :controller => :topics, :action => :create}) do |f| %>
           <div class="modal-body text-left">
             <div class="form-group">
               <%= f.label :title, "タイトル" %>
-              <%= f.text_field :title, class: "form-control", type: "email", placeholder: "タイトル" %>
+              <%= f.text_field :title, class: "form-control", type: "text", placeholder: "タイトル" %>
             </div>
             <div class="form-group">
               <%= f.label :content, "コンテンツ" %>
@@ -54,7 +53,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
-            <%= f.submit "投稿する", type: "button", class: "btn btn-info" %>
+            <%= f.submit "投稿する", class: "btn btn-info" %>
           </div>
         <% end %>
       </div>

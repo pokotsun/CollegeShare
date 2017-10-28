@@ -1,0 +1,11 @@
+<!-- Message to the right -->
+<div class="direct-chat-msg right">
+  <div class="direct-chat-info clearfix">
+    <span class="direct-chat-name pull-right"><%= comment.user.name %></span>
+    <span class="direct-chat-timestamp pull-left"><%= l comment.created_at, format: :exlong %></span>
+  </div><!-- /.direct-chat-info -->
+  <%= image_tag(comment.user.user_image, class: "direct-chat-img", alt: "User Image") %>
+  <div class="direct-chat-text">
+    <%= comment.content %>
+  </div><!-- /.direct-chat-text -->
+</div><!-- /.direct-chat-msg -->
