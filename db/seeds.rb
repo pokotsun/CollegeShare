@@ -29,7 +29,7 @@ prefectures = Prefecture.create!(
 
 user1 = User.new(:name => "こにしあつし",
 :account_id => "koniatsu",
-:profile_img => "sample_user_img4.jpg",
+:profile_img => "default",
 :major => "理系",
 :email => 'a@b.com',
 :password => 'aaabbb')
@@ -37,7 +37,11 @@ user1.save!
 
 user2 = User.new(:name => "はやしみずき",
 :account_id => "meta713",
+<<<<<<< HEAD
 :profile_img => "sample_user_img1.jpg",
+=======
+:profile_img => "default.jpg",
+>>>>>>> 32d3f35d0b5f739394f995dcd3e866acd622506d
 :major => "理系",
 :email => 'c@d.com',
 :password => 'aaabbb')

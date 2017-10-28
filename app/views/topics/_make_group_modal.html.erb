@@ -9,8 +9,20 @@
       <div class="modal-body text-left">
         <form role="form">
           <ul class="products-list product-list-in-box">
+            <% commenters.each do |user| %>
             <li class="item">
-              <div class="product-img">
+                <div class="product-img">
+                  <%= image_tag(user.user_image, class: "img-circle", alt: "User Image", size: "50x50") %>
+                </div>
+                <div class="product-info">
+                  <a class="product-title"><%= user.account_id %></a>
+                  <label class="pull-right"><input type="checkbox" class="checkbox01-input"><span class="checkbox01-parts"></span></label>
+                  <span class="product-description"><%= user.name %></span>
+                </div>
+            </li>
+            <% end %>
+
+              <!--<div class="product-img">
                 <%= image_tag("user_img/sample_user_img1.jpg", class: "img-circle", alt: "User Image") %>
               </div>
               <div class="product-info">
@@ -37,8 +49,7 @@
                 <a class="product-title">@hogehoge</a>
                 <label class="pull-right"><input type="checkbox" class="checkbox01-input"><span class="checkbox01-parts"></span></label>
                 <span class="product-description">林 みずき</span>
-              </div>
-            </li>
+              </div> -->
             <li class="item">
               <div class="product-img">
                 <%= image_tag("user_img/sample_user_img2.jpg", class: "img-circle", alt: "User Image") %>

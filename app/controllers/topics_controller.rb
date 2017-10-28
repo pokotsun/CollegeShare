@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.first
   end
 
   def create

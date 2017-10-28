@@ -79,7 +79,7 @@
         <!-- hooter -->
       </section>
       <!-- /.content -->
-      <%= render "make_group_modal"%>
+      <%= render partial: "make_group_modal", locals: {commenters: @topic.commenters} %>
     </div>
   </div>
   <!-- /.content-wrapper -->
