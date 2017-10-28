@@ -38,7 +38,7 @@
         <% end %>
         <ul class="treeview-menu">
           <% user.communities.each do |com| %>
-            <li><%= link_to(com.college_name, community_topics_path(com.id), method: :GET)%></li>
+            <li><%= link_to(com.college_name, community_topics_path(com[:id]), method: :GET)%></li>
           <% end %>
         </ul>
       </li>
@@ -53,8 +53,8 @@
           </span>
         <% end %>
         <ul class="treeview-menu">
-          <% (1..5).each  do |i| %>
-            <li><%= link_to("グループその#{i}", "")%></li>
+          <% user.groups.each  do |g| %>
+            <li><%= link_to(g.name, group_path(g[:id]), method: :GET) %></li>
           <% end %>
         </ul>
       </li>
