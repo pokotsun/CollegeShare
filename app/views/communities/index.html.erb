@@ -41,11 +41,13 @@
             <div class="box-body table-responsive no-padding">
               <%= render partial: 'search_table', locals: { communities: @communities } %>
             </div>
-            <div class="center">
-              <%= paginate @communities %>
-            </div>
-            <div class="right">
-              <%= numofcases(@communities) %>
+            <div class="box-body">
+              <div>
+                <%= paginate @communities %>
+              </div>
+              <div>
+                <%= numofcases(@communities) %>
+              </div>
             </div>
           </div>
         </div>
@@ -58,3 +60,7 @@
     <%= render 'layouts/footer' %>
   </div>
   <!-- ./wrapper -->
+
+.numofcases {
+  display: inline-block;
+}
