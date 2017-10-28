@@ -37,8 +37,8 @@
           </span>
         <% end %>
         <ul class="treeview-menu">
-          <% (1..5).each  do |i| %>
-            <li><%= link_to("コミュニティその#{i}", "#")%></li>
+          <% user.communities.each do |com| %>
+            <li><%= link_to(com.college_name, community_topics_path(com.id), method: :GET)%></li>
           <% end %>
         </ul>
       </li>
