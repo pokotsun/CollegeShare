@@ -42,6 +42,7 @@
               <%= render partial: 'search_table', locals: { communities: @communities } %>
             </div>
             <%= paginate @communities %>
+            <div><%= @communities.total_count %>件中<%= @communities.offset_value %>~<%= @communities.offset_value + @communities.length %>件</div>
           </div>
         </div>
       </section>
