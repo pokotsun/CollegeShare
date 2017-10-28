@@ -54,7 +54,7 @@
         <% end %>
         <ul class="treeview-menu">
           <% user.groups.each  do |g| %>
-            <li><%= link_to(g.name, "#") %></li>
+            <li><%= link_to(g.name, group_channels_path(g.id)) %></li>
           <% end %>
         </ul>
       </li>

@@ -62,7 +62,7 @@
               <!-- コメント欄 -->
               <div class="box box-foot direct-chat direct-chat-info topic-comment">
                 <!-- コメントリスト -->
-                <%= render 'layouts/comments_list' %>
+                <%= render partial: 'layouts/comments_list', locals: { comments:  }, remote: true %>
                 <!-- コメント投稿欄 -->
                 <div class="box-footer">
                   <div class="input-group">
@@ -79,7 +79,7 @@
         <!-- hooter -->
       </section>
       <!-- /.content -->
-      <%= render partial: "make_group_modal", locals: {commenters: @topic.topic_comments} %>
+      <%#= render partial: "make_group_modal", locals: {commenters: @group.group_channels} %>
     </div>
   </div>
   <!-- /.content-wrapper -->
