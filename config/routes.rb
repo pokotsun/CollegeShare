@@ -18,7 +18,15 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   resources :communities do
-    resources :topics
+    resources :topics do
+      collection do
+        post :update_good_num_topic
+      end
+      member do
+        post :create_comment
+        post :update_good_num
+      end
+    end
   end
 
   resources :groups do

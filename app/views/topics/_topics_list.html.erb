@@ -8,7 +8,7 @@
     </div>
     <div class="box-tools">
       <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="いいね！" style="cursor:default;">
-        <i class="fa fa-thumbs-o-up"></i> <%= topic.good_num %> Like</button>
+        <i class="fa fa-thumbs-o-up"></i> <span class="good_count" topic-id="<%= topic.id %>"><%= topic.good_num %></span> Like</button>
       <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
       </button>
     </div>
@@ -31,9 +31,15 @@
     </div>
     <!-- /.attachment-block -->
     <!-- fotter buttons -->
-    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> いいね</button>
+    <!-- いいねボタン -->
+    <%= form_tag({:controller => :topics, :action => :update_good_num_topic}, :remote => true ) do %>
+    <%= button_tag :type => "submit", class: "btn btn-default btn-xs" do %>
+    <i class="fa fa-thumbs-o-up"></i> いいね
+    <% end %>
     <%= link_to "もっと読む", community_topic_path(@community.id, topic.id), class: "btn btn-info btn-xs"%>
-    <span class="pull-right text-muted small"><%= topic.good_num %> いいね - <%= topic.topic_comments.count %> コメント</span>
+    <span class="pull-right text-muted small info_label" topic-id="<%= topic.id %>"><%= topic.good_num %> いいね - <%= topic.topic_comments.count %> コメント</span>
+    <%= hidden_field_tag :topic_id, topic.id %>
+    <% end %>
   </div>
 </div>
 <% end %>

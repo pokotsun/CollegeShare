@@ -49,23 +49,34 @@
                   <%= @topic.content %>
                 </p>
                 <!-- Social sharing buttons -->
-                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-                <span class="pull-right text-muted small"> <%= @topic.good_num %> いいね - <%= @topic.topic_comments.count %> コメント</span>
+                <%= form_tag({:controller => :topics, :action => :update_good_num}, :remote => true ) do %>
+                  <%= button_tag :type => "submit", class: "btn btn-default btn-xs" do %>
+                  <i class="fa fa-thumbs-o-up"></i> いいね
+                  <% end %>
+                  <span class="pull-right text-muted small" id="info_label"> <%= @topic.good_num %> いいね - <%= @topic.topic_comments.count %> コメント</span>
+                <% end %>
               </div>
               <!-- topic詳細ページのテキスト部分終了 -->
 
               <!-- コメント欄 -->
               <div class="box box-foot direct-chat direct-chat-info topic-comment">
+                <!-- Conflict Merge  -->
                 <!-- コメントリスト -->
-                <%= render partial: 'layouts/comment_list', locals: {comments: @topic.topic_comments}, remote: true %>
+                <div class="direct-chat-messages" id="comment_list">
+                  <%= render partial: 'layouts/comment_list', locals: {comments: @topic.topic_comments}, remote: true %>
+                </div>
+                <!-- Conflict Merge  -->
+
                 <!-- コメント投稿欄 -->
                 <div class="box-footer">
+                  <%= form_for(@comment, :url => { :controller => :topics, :action => :create_comment}, data: { remote: true }) do |f| %>
                   <div class="input-group">
-                    <input type="text" name="message" placeholder="コメント入力" class="form-control">
+                    <%= f.text_field :content, class: "form-control", type: "text", placeholder: "コメント入力" %>
                     <span class="input-group-btn">
-                      <button type="button" class="btn btn-info btn-flat">Send</button>
+                      <%= f.submit "Send", class: "btn btn-info btn-flat" %>
                     </span>
                   </div>
+                  <% end %>
                 </div> <!-- コメント投稿欄終了 -->
               </div><!--/.direct-chat -->
             </div>
