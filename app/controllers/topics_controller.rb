@@ -1,13 +1,18 @@
 class TopicsController < ApplicationController
   before_action :set_current_community, only: [:show, :index, :create]
+  before_action :set_current_topic, only: [:show, :create_comment, :update_good_num]
+
   def index
     @topics = Topic.where(community_id: params[:community_id]).page(params[:page]).per(10).order(:id)
     @topic = Topic.new()
   end
 
   def show
-    @topic = Topic.find(params[:id])
     @comment = Comment.new()
+  end
+
+  def update_good_num
+    @topic.update(good_num: 0)
   end
 
   def create
@@ -23,7 +28,6 @@ class TopicsController < ApplicationController
 
   def create_comment
     @comment = Comment.new(create_comment_param)
-    @topic = Topic.find(params[:id])
     @comment.save
   end
 
@@ -34,6 +38,10 @@ class TopicsController < ApplicationController
 
     def set_current_community
       @community = Community.find(params[:community_id])
+    end
+
+    def set_current_topic
+      @topic = Topic.find(params[:id])
     end
 
     def create_comment_param

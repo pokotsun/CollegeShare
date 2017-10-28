@@ -49,8 +49,12 @@
                   <%= @topic.content %>
                 </p>
                 <!-- Social sharing buttons -->
-                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-                <span class="pull-right text-muted small"> <%= @topic.good_num %> いいね - <%= @topic.comments.count %> コメント</span>
+                <%#= form_for(@topic, :url => { :controller => :topics, :action => :update_good_num}, data: { remote: true }) do |f| %>
+                  <%#= f.hidden_field :good_num, :value => @topic.good_num %>
+                  <%#= f.submit '<i class="fa fa-thumbs-o-up"></i> いいね', class: "btn btn-default btn-xs" %>
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> いいね</button>
+                <%# end %>
+                <span class="pull-right text-muted small" id="info_label"> <%= @topic.good_num %> いいね - <%= @topic.comments.count %> コメント</span>
               </div>
               <!-- topic詳細ページのテキスト部分終了 -->
 

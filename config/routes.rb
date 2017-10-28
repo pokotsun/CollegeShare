@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :topics do
       member do
         post :create_comment
+        post :update_good_num
       end
     end
   end

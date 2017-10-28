@@ -1,3 +1,2 @@
-$("#comment_list").html('<%= j(render partial: "comment_list") %>');
 $("#info_label").html('<%= @topic.good_num %> いいね - <%= @topic.comments.count %> コメント');
-$("#comment_content").val("");
+$(".info-box-number").html('<%= @topic.good_num %>');
