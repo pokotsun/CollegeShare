@@ -26,19 +26,10 @@
               <div class="box-tools">
                 <%= form_tag({controller: "topics", action: "index"}, method: "get") do %>
                 <div class="form-group col-md-6">
-                  <!-- <select class="form-control select2 select2-hidden-accessible sort-select-box" tabindex="-1" aria-hidden="true">
-                    <option selected="selected">全件表示</option>
-                    <option>五十音順</option>
-                    <option>いいね順</option>
-                    <option>投稿日時が早い順</option>
-                    <option>投稿日時が遅い順</option>
-                  </select> -->
-
                   <%= select_tag :sort, options_for_select([["全件表示",0],["五十音順",1],["いいね順",2],["投稿日時が早い順",3],["投稿日時が遅い順",4]], selected: @sort), {class: "form-control select2 select2-hidden-accessible sort-select-box", tabindex: -1, "aria-hidden": true } %>
                 </div>
                 <div class="input-group input-group-sm col-md-6" style="width: 150px;">
                   <%= text_field_tag :search_name, @search_name, {class: "form-control pull-right", placeholder: "検索" }%>
-                  <!-- <input type="text" name="table_search" class="form-control pull-right" placeholder="Search..."> -->
                   <div class="input-group-btn">
                     <%= button_tag :type => "submit", class: "btn btn-default" do %>
                     <i class='fa fa-search'></i>

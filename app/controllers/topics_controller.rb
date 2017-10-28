@@ -3,9 +3,9 @@ class TopicsController < ApplicationController
   before_action :set_current_topic, only: [:show, :create_comment, :update_good_num]
 
   def index
-    @sort = params[:sort].nil?? "0" : params[:sort]
-    @search_name = params[:search_name].nil?? "" : params[:search_name]
-    @topics = search_topics
+    @sort = params[:sort] || "0"
+    @search_name = params[:search_name] || ""
+    @topics = search_topics.page(params[:page]).per(10)
     @topic = Topic.new()
   end
 
@@ -60,17 +60,17 @@ class TopicsController < ApplicationController
     def sort_topics(topics)
       case params[:sort].to_i
       when 0 then
-        topics.page(params[:page]).per(10).order(:id)
+        topics.order(:id)
       when 1 then
-        topics.page(params[:page]).per(10).order(:title)
+        topics.order(:title)
       when 2 then
-        topics.page(params[:page]).per(10).order(:good_num)
+        topics.order(:good_num).reverse_order
       when 3 then
-        topics.page(params[:page]).per(10).order(:created_at).reverse_order
+        topics.order(:created_at).reverse_order
       when 4 then
-        topics.page(params[:page]).per(10).order(:created_at)
+        topics.order(:created_at)
       else
-        topics.page(params[:page]).per(10).order(:id)
+        topics.order(:id)
       end
     end
 
