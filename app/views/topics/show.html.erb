@@ -57,15 +57,19 @@
               <!-- コメント欄 -->
               <div class="box box-foot direct-chat direct-chat-info topic-comment">
                 <!-- コメントリスト -->
-                <%= render partial: 'comment_list', locals: {comments: @topic.comments}, remote: true %>
+                <div class="direct-chat-messages" id="comment_list">
+                  <%= render partial: 'comment_list', remote: true %>
+                </div>
                 <!-- コメント投稿欄 -->
                 <div class="box-footer">
+                  <%= form_for(@comment, :url => { :controller => :topics, :action => :create_comment}, data: { remote: true }) do |f| %>
                   <div class="input-group">
-                    <input type="text" name="message" placeholder="コメント入力" class="form-control">
+                    <%= f.text_field :content, class: "form-control", type: "text", placeholder: "コメント入力" %>
                     <span class="input-group-btn">
-                      <button type="button" class="btn btn-info btn-flat">Send</button>
+                      <%= f.submit "Send", class: "btn btn-info btn-flat" %>
                     </span>
                   </div>
+                  <% end %>
                 </div> <!-- コメント投稿欄終了 -->
               </div><!--/.direct-chat -->
             </div>

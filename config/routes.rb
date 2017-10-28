@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   resources :communities do
-    resources :topics
+    resources :topics do
+      member do
+        post :create_comment
+      end
+    end
   end
   resources :groups
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
