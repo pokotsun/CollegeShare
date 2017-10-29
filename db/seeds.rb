@@ -84,6 +84,18 @@ prefectures = Prefecture.create!(
   :user_id => users[2].id,
   :community_id => community.id,)
 
+  topic = Topic.create!(
+  :title => "九工大って何してるのか見に行った!!",
+  :content => "銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。",
+  :good_num =>  6,
+  :user_id => users[2].id,
+  :community_id => community.id,)topic = Topic.create!(
+  :title => "九工大の情報工学部のある飯塚って手榴弾落ちてるって本当か検証しにいった",
+  :content => "キャンパスと銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。",
+  :good_num =>  6,
+  :user_id => users[2].id,
+  :community_id => community.id,)
+
   channel = Channel.create!(
   :title => "九工大の飯塚キャンパスが気になる件",
   :user_id => users[2].id,
