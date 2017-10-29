@@ -7,13 +7,15 @@
         <h4 class="modal-title text-center">グループ作成</h4>
       </div>
       <div class="modal-body text-left">
-        <form role="form">
+        <!-- <form role="form"> -->
+        <% group = Group.new() %>
+        <%= form_for group do |f|  %>
           <p class="text-muted small text-center">ここでは、気に入った人たちとプライベートなグループを作ることができます！</p>
           <div class="form-group">
-            <label>チーム名</label>
-            <input type="text" class="form-control" placeholder="チーム名">
-
+            <%= f.label "チーム名" %>
+            <%= f.text_field :name, :class => "form-control", placeholder: "チーム名" %>
           </div>
+
           <ul class="products-list product-list-in-box">
             <% commenters.each do |user| %>
             <li class="item">
@@ -22,18 +24,19 @@
                 </div>
                 <div class="product-info">
                   <a class="product-title"><%= user.account_id %></a>
-                  <label class="pull-right"><input type="checkbox" class="checkbox01-input"><span class="checkbox01-parts"></span></label>
+                  <label class="pull-right"><%= check_box_tag 'members[]', user.id, checked=false, :class => "checkbox01-input" %><span class="checkbox01-parts"></span></label>
                   <span class="product-description"><%= user.name %></span>
                 </div>
             </li>
             <% end %>
           </ul>
-       </form>
       </div>
       <div class="modal-footer text-center">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
-        <button type="button" class="btn btn-success">グループ作成！</button>
+        <%= f.submit "グループ作成!", :class=>"btn btn-success" %>
       </div>
+      <% end %>
+      <!-- フォーム終了 -->
     </div>
     <!-- /.modal-content -->
   </div>
