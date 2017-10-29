@@ -53,6 +53,54 @@ prefectures = Prefecture.create!(
 
   users = [user1, user2, user3]
 
+
+  community = Community.create!(
+  :college_name => "九州工業大学",
+  :campus_name => "飯塚キャンパス",
+  :prefecture_id => "40",
+  :major => "1",)
+
+  group = Group.create!(
+  :name => "ポコメタ淳",)
+
+  users.each do |user|
+    community_user = CommunityUser.create!(
+    :user_id => user.id,
+    :community_id => community.id,)
+
+    group_user = GroupUser.create!(
+    :user_id => user.id,
+    :group_id => group.id,)
+  end
+
+  topic = Topic.create!(
+  :title => "九州工業大学の飯塚キャンパスに行ってきました!!",
+  :content => "オープンキャンパスとは、学校法人がその学校へ入学を希望・考慮している者に対して、施設内を公開し、学校への関心を深めて貰おうとする、入学促進イベントの一種。
+日本では、主に大学、専門学校、高等学校などが開催しているが、大学以外では「体験入学」や「オープンスクール」と称することも多い。
+似た制度でオープンカレッジがあるが、こちらは一般の人の生涯学習を目的にして大学が行う専門の講座のことである。
+1990年代以前は、高校生やその父兄を対象とした大学構内の積極的な公開は行われていなかったが、いわゆる少子化を背景に、受験生の確保を目的に1990年代後半頃から一部の大学で行われるようになった。その後2000年代になると偏差値が高いとされる、いわゆる難関校と呼ばれる大学でも開催されるようになったが、これは少子化を背景としたものではなく、よりミスマッチの少ない学生を入学させたいという意図から行われている。
+なお、オープンキャンパスと銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。",
+  :good_num =>  6,
+  :user_id => users[2].id,
+  :community_id => community.id,)
+
+  channel = Channel.create!(
+  :title => "九工大の飯塚キャンパスが気になる件",
+  :user_id => users[2].id,
+  :group_id => group.id,)
+
+  topic_comment = TopicComment.create!(
+  :content => "キャンパスは綺麗だった？？",
+  :good_num => 1 ,
+  :user_id => users[1].id,
+  :topic_id => topic.id,)
+
+  channel_comment = ChannelComment.create!(
+  :content => "みんな、どこにいきたい？？！",
+  :user_id => users[1].id,
+  :channel_id => channel.id,)
+
+
   # データ作っていく
   (1..10).each do |i|
     # communityの生成

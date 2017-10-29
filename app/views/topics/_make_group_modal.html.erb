@@ -7,10 +7,9 @@
         <h4 class="modal-title text-center">グループ作成</h4>
       </div>
       <div class="modal-body text-left">
-        <!-- <form role="form"> -->
         <% group = Group.new() %>
         <%= form_for group do |f|  %>
-          <p class="text-muted small text-center">ここでは、気に入った人たちとプライベートなグループを作ることができます！</p>
+          <p class="text-muted small text-center" style="margin-bottom:0;">ここでは、気に入った人たちとプライベートなグループを作ることができます！</p>
           <div class="form-group">
             <%= f.label "チーム名" %>
             <%= f.text_field :name, :class => "form-control", placeholder: "チーム名" %>
