@@ -33,11 +33,6 @@ class CommunitiesController < ApplicationController
         communities.joins(:prefecture).order("prefectures.name") #おそらくまだ
       when 4 then
         communities.order(:prefecture_id)
-        #communities.order(:good_num).reverse_order まだ
-      # when 5 then
-      #   communities.order(:created_at).reverse_order
-      # when 6 then
-      #   communities.order(:created_at)
       else
         communities.order(:prefecture_id)
       end
