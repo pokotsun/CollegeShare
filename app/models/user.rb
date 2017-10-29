@@ -20,7 +20,7 @@ class User < ApplicationRecord
     if !profile_img.nil? && File.exist?(Rails.root.to_s + "/public/user_images/#{profile_img}") then
       return "/user_images/#{profile_img}"
     else
-      return "user_img/default"
+      return "user_img/default.png"
     end
   end
 
