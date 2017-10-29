@@ -1,21 +1,3 @@
-<div class="box box-widge text-left box-info">
-  <div class="box-header with-border">
-    <div class="user-block">
-      <!-- ここはユーザの写真  -->
-      <%= image_tag(user.user_image, class: "img-circle", alt: "User Image") %>
-      <span class="comment">チャンネル作成</span>
-      <span class="description">話す内容ごとにチャンネルを作ろう!</span>
-    </div>
-    <div class="box-tools">
-      <!-- <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="いいね！" style="cursor:default;"> -->
-      <!-- <i class="fa fa-thumbs-o-up"></i> Like</button> -->
-      <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal-default" title="トピック投稿">
-        <i class="fa fa-share"></i>作成
-      </button>
-    </div>
-  </div>
-</div>
-
 <div class="modal fade" id="modal-default">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -27,6 +9,7 @@
         <% channel = Channel.new() %>
         <%= form_for(channel, :url => { :controller => :channels, :action => :create}) do |f| %>
           <div class="modal-body text-left">
+            <p class="text-muted small text-center" style="margin-bottom:0;">気になる話題をグループで共有しよう！</p>
             <div class="form-group">
               <%= f.label :title, "タイトル" %>
               <%= f.text_field :title, class: "form-control", type: "text", placeholder: "タイトル" %>

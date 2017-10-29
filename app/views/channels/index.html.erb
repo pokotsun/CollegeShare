@@ -12,6 +12,11 @@
         <li><%= link_to "一覧", communities_path %></li>
         <li><%= @group.name %></li>
       </ol>
+      <div class="text-right" style="margin-top:0.5em;">
+        <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#modal-default">
+          <i class="fa fa-share"></i>チャンネル作成
+        </button>
+      </div>
     </section>
     <!-- Main content -->
     <section class="content">
@@ -32,7 +37,7 @@
                   </select>
                 </div>
                 <div class="input-group input-group-sm col-md-6" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search...">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="検索">
                   <div class="input-group-btn">
                     <button type="submit" class="btn btn-default">
                       <i class="fa fa-search"></i>

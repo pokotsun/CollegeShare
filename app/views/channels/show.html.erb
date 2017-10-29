@@ -12,7 +12,7 @@
         <h1><%= @group.name %></h1>
         <ol class="breadcrumb">
           <li><a href="">一覧</a></li>
-          <li><a href=""><%= @group.name %></a></li>
+          <li><%= link_to @group.name, group_channels_path(@group) %></li>
           <li><%= @channel.title %></li>
         </ol>
       </section>
@@ -27,15 +27,6 @@
                   <h2 class="channel-title"><%= @channel.title  %></h2>
                   <h5 class="contributor"><%= "投稿者: #{@channel.user.name}"  %></h5>
                 </div>
-                <div class="col-md-2 thumbs-up-wrapper">
-                  <div class="col-md-6"></div>
-                  <div class="col-md-3">
-                    <i class="fa fa-thumbs-o-up"></i>
-                  </div>
-                  <div class="col-md-3">
-                    <span class="info-box-number">30</span>
-                  </div>
-                </div>
               </div>
               <!-- topic詳細ページの見出し部分終了 -->
 
@@ -46,7 +37,7 @@
                 <!-- コメント投稿欄 -->
                 <div class="box-footer">
                   <div class="input-group">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <input type="text" name="message" placeholder="コメント入力" class="form-control">
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-info btn-flat">Send</button>
                     </span>
