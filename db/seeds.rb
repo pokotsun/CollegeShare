@@ -88,6 +88,14 @@ prefectures = Prefecture.create!(
   :title => "九工大の飯塚キャンパスが気になる件",
   :user_id => users[2].id,
   :group_id => group.id,)
+  channel = Channel.create!(
+  :title => "九工大って何してるのか見に行った",
+  :user_id => users[2].id,
+  :group_id => group.id,)
+  channel = Channel.create!(
+  :title => "九工大の情報工学部のある飯塚って手榴弾落ちてるって本当か検証しにいった",
+  :user_id => users[2].id,
+  :group_id => group.id,)
 
   topic_comment = TopicComment.create!(
   :content => "キャンパスは綺麗だった？？",
