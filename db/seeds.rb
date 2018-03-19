@@ -82,43 +82,44 @@ prefectures = Prefecture.create!(
 なお、オープンキャンパスと銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。",
   :good_num =>  6,
   :user_id => users[2].id,
-  :community_id => community.id,)
+  :community_id => community.id)
 
   topic = Topic.create!(
   :title => "九工大って何してるのか見に行った!!",
   :content => "銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。",
   :good_num =>  6,
   :user_id => users[2].id,
-  :community_id => community.id,)topic = Topic.create!(
+  :community_id => community.id)
+  topic = Topic.create!(
   :title => "九工大の情報工学部のある飯塚って手榴弾落ちてるって本当か検証しにいった",
   :content => "キャンパスと銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。",
   :good_num =>  6,
   :user_id => users[2].id,
-  :community_id => community.id,)
+  :community_id => community.id)
 
   channel = Channel.create!(
   :title => "九工大の飯塚キャンパスが気になる件",
   :user_id => users[2].id,
-  :group_id => group.id,)
+  :group_id => group.id)
   channel = Channel.create!(
   :title => "九工大って何してるのか見に行った",
   :user_id => users[2].id,
-  :group_id => group.id,)
+  :group_id => group.id)
   channel = Channel.create!(
   :title => "九工大の情報工学部のある飯塚って手榴弾落ちてるって本当か検証しにいった",
   :user_id => users[2].id,
-  :group_id => group.id,)
+  :group_id => group.id)
 
   topic_comment = TopicComment.create!(
   :content => "キャンパスは綺麗だった？？",
   :good_num => 1 ,
   :user_id => users[1].id,
-  :topic_id => topic.id,)
+  :topic_id => topic.id)
 
   channel_comment = ChannelComment.create!(
   :content => "みんな、どこにいきたい？？！",
   :user_id => users[1].id,
-  :channel_id => channel.id,)
+  :channel_id => channel.id)
 
 
   # データ作っていく
@@ -128,21 +129,21 @@ prefectures = Prefecture.create!(
     :college_name => "学校その#{i}",
     :campus_name => "第#{i}キャンパス",
     :prefecture_id => "#{i}",
-    :major => "#{i%3}",)
+    :major => "#{i%3}")
 
     # groupの生成
     group = Group.create!(
-    :name => "グループ#{i}",)
+    :name => "グループ#{i}")
 
     # ユーザーごとにコミュニティとグループのm対nの関係を作る
     users.each do |user|
       community_user = CommunityUser.create!(
       :user_id => user.id,
-      :community_id => community.id,)
+      :community_id => community.id)
 
       group_user = GroupUser.create!(
       :user_id => user.id,
-      :group_id => group.id,)
+      :group_id => group.id)
     end
 
     (1..5).each do |j|
@@ -152,13 +153,13 @@ prefectures = Prefecture.create!(
       :content => "内容その#{i + j}",
       :good_num => i + j + 10,
       :user_id => users[i%3].id,
-      :community_id => community.id,)
+      :community_id => community.id)
 
       # チャンネルの作成
       channel = Channel.create!(
       :title => "タイトルその#{i + j}",
       :user_id => users[j%3].id,
-      :group_id => group.id,)
+      :group_id => group.id)
 
       # 各コメントの作成
       (1..5).each do |k|
@@ -171,13 +172,13 @@ prefectures = Prefecture.create!(
     なお、オープンキャンパスと銘打っていなくても、施設の見学や相談などを随時受け付けている場合も多く、普段の大学の様子を学内に入って自由に見学することを認めている大学も多い。",
         :good_num => 1 + j + k,
         :user_id => users[(i+j+k) % 3].id,
-        :topic_id => topic.id,)
+        :topic_id => topic.id)
 
         # チャンネルコメントを生成
         channel_comment = ChannelComment.create!(
         :content => "チャンネルの話の内容#{i + j + k}" * 3,
         :user_id => users[k % 3].id,
-        :channel_id => channel.id,)
+        :channel_id => channel.id)
       end
     end
   end
